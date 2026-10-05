@@ -1,0 +1,1025 @@
+{
+  "_README": "FICHA LAST PAIGE — lista de TRILHAS (caminhos)\n\nComo editar: este é um JSON puro. Abra no Bloco de Notas, VS Code, etc.\nCada item de \"trilhas\" representa uma trilha do personagem:\n  nome      -> texto (aparece no autocomplete da ficha)\n  resumo    -> texto curto (descrição mostrada no autocomplete)\n  maldicoes -> lista de habilidades desbloqueadas pela trilha:\n      nivel      -> número inteiro do nível do PERSONAGEM que libera\n      nome       -> texto\n      custo      -> texto livre (\"Passivo\", \"Reação\", \"13 PA\"... anything)\n      elemento   -> texto livre (\"N/A\", \"Fogo\", \"Gelo\"... anything)\n      descricao  -> texto com o efeito da maldição\n\nRegras:\n  - NUNCA apague as vírgulas nem aspas.\n  - Para criar uma trilha nova, copie um bloco inteiro {...} e edite.\n  - Salve e atualize a página (Ctrl+R): o autocomplete já mostra a trilha nova.\n  - Só é possível ter 1 trilha ativa na ficha; escolher uma troca a atual.\n\nExemplo mínimo de uma maldição:\n  { \"nivel\": 5, \"nome\": \"Nome\", \"custo\": \"Passivo\", \"elemento\": \"N/A\", \"descricao\": \"Texto do efeito.\" }",
+  "trilhas": [
+    {
+      "nome": "Investigador Paranormal",
+      "resumo": "Facilidade para investigar casos paranormais com afinidade com o pós-Éden, percebendo texturas do sobrenatural.",
+      "maldicoes": [
+        {
+          "nivel": 5,
+          "nome": "Percepção Paranormal",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Teste de percepção para detectar energia amaldiçoada (criaturas, amaldiçoados ou objetos próximos). +2 em Investigação/Ocultismo em cenas paranormais."
+        },
+        {
+          "nivel": 10,
+          "nome": "Análise Sobrenatural",
+          "custo": "Ação",
+          "elemento": "N/A",
+          "descricao": "Teste de energia paranormal para descobrir elemento, estado (forte/fraca/morrendo) e fraquezas de criaturas. +1 em testes contra a criatura analisada."
+        },
+        {
+          "nivel": 15,
+          "nome": "Especialização Elemental",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Resistência 5 em elemento de especialização. +2 em quaisquer perícias contra criaturas desse elemento."
+        },
+        {
+          "nivel": 20,
+          "nome": "Teoria das Maldições",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Aumenta DT de maldições em +2."
+        },
+        {
+          "nivel": 25,
+          "nome": "Mímese Arcano",
+          "custo": "Reação",
+          "elemento": "N/A",
+          "descricao": "Ao presenciar uma maldição, teste de energia paranormal (vs DT do alvo) para copiá-la por 1 cena."
+        },
+        {
+          "nivel": 30,
+          "nome": "Onisciência Paranormal",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Resistência 5 para todos elementos (10 para especialização). +1 dado contra criaturas da especialização."
+        },
+        {
+          "nivel": 40,
+          "nome": "Desconstrução Amaldiçoada",
+          "custo": "20 PA",
+          "elemento": "N/A",
+          "descricao": "Teste de reação para anular maldições direcionadas a você/aliados adjacentes ou remover buffs amaldiçoados de inimigos."
+        },
+        {
+          "nivel": 50,
+          "nome": "Linguagem da Realidade",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Domina a língua $+°©{√3B¿ (ler escrituras rúnicas, comunicação universal). Aprende a maldição exclusiva &!!p↓×®%."
+        }
+      ]
+    },
+    {
+      "nome": "Barreira",
+      "resumo": "Especialista em defesa física, capaz de absorver, reduzir e até anular completamente ataques inimigos, evoluindo para técnicas de proteção avançadas.",
+      "maldicoes": [
+        {
+          "nivel": 1,
+          "nome": "Defesa Básica",
+          "custo": "Reação",
+          "elemento": "N/A",
+          "descricao": "Perícia especial 'Defesa'. Teste para reduzir dano físico recebido em 50% do valor de Físico. Pode ser combinada com equipamentos de proteção."
+        },
+        {
+          "nivel": 5,
+          "nome": "Postura Defensiva",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "+2 na perícia Defesa."
+        },
+        {
+          "nivel": 10,
+          "nome": "Anulação Perfeita",
+          "custo": "Reação (Crítico)",
+          "elemento": "N/A",
+          "descricao": "Ao acertar um crítico no teste de Defesa, anula completamente o dano de um ataque físico."
+        },
+        {
+          "nivel": 15,
+          "nome": "Proteção Aliada",
+          "custo": "13 PA (Reação)",
+          "elemento": "N/A",
+          "descricao": "Defende um aliado em curta distância. Cooldown: 1d4 rodadas."
+        },
+        {
+          "nivel": 20,
+          "nome": "Resiliência Aprimorada",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Ganha +5 de Redução de Dano (RD)."
+        },
+        {
+          "nivel": 25,
+          "nome": "Barreira Balística",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Pode defender contra projéteis (incluindo armas de fogo)."
+        },
+        {
+          "nivel": 30,
+          "nome": "Contra-Ataque",
+          "custo": "Reação (Crítico)",
+          "elemento": "N/A",
+          "descricao": "Ao anular um ataque com crítico, realiza um contra-ataque imediato. Cooldown: 1d4 rodadas."
+        },
+        {
+          "nivel": 40,
+          "nome": "Corpo Inquebrável",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "+5 de RD adicional (totalizando +10 desde o nível 20)."
+        },
+        {
+          "nivel": 50,
+          "nome": "Escudo Ancestral",
+          "custo": "1 Rodada (Ritual)",
+          "elemento": "N/A",
+          "descricao": "Invoca um escudo mágico (30 RD) que protege você e aliados atrás de você. Pode ser lançado como ataque (2d10 + Força). O escudo racha com ataques que superem sua RD – quebra após 10 ataques bem-sucedidos. Recarrega na próxima cena."
+        }
+      ]
+    },
+    {
+      "nome": "Patrono da Vida",
+      "resumo": "Mestre da medicina e cura, capaz de realizar procedimentos avançados em qualquer situação e até invocar técnicas ancestrais de restauração.",
+      "maldicoes": [
+        {
+          "nivel": 1,
+          "nome": "Primeiros Socorros",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "+1 em testes de Medicina. Kit médico com 3 usos. Soma a perícia Medicina em rolagens de cura."
+        },
+        {
+          "nivel": 5,
+          "nome": "Especialista Médico",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Kit médico cura 6d6. +1 adicional em Medicina (total +2 desde nível 1)."
+        },
+        {
+          "nivel": 10,
+          "nome": "Improvisação de Emergência",
+          "custo": "Ação Completa",
+          "elemento": "N/A",
+          "descricao": "Teste de Sobrevivência para improvisar kit médico ou antídoto em qualquer situação."
+        },
+        {
+          "nivel": 15,
+          "nome": "Cura em Massa",
+          "custo": "13 PA por alvo",
+          "elemento": "N/A",
+          "descricao": "Cura múltiplos alvos na mesma ação (custo cumulativo)."
+        },
+        {
+          "nivel": 20,
+          "nome": "Tratamento Rápido",
+          "custo": "Ação de Movimento",
+          "elemento": "N/A",
+          "descricao": "Substitui ação de movimento por teste de Medicina."
+        },
+        {
+          "nivel": 25,
+          "nome": "Último Suspiro",
+          "custo": "20 PA (Reação)",
+          "elemento": "N/A",
+          "descricao": "Quando aliado adjacente entra em estado 'morrendo', recupera vida igual ao dano recebido."
+        },
+        {
+          "nivel": 30,
+          "nome": "Kit Inesgotável",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Kit médico dura missão inteira. Cura 6d8. +1 em Medicina (total +3)."
+        },
+        {
+          "nivel": 40,
+          "nome": "Mantra da Renascença",
+          "custo": "10 PA + 5 PA/turno",
+          "elemento": "N/A",
+          "descricao": "Cura permanente em área (15m): aliados curam 2d6/turno. Requer concentração total (sem comunicação)."
+        },
+        {
+          "nivel": 50,
+          "nome": "Escudo contra a Morte",
+          "custo": "20 PA (Reação)",
+          "elemento": "N/A",
+          "descricao": "Aliado adjacente leva crítico → teste de Medicina para mitigar efeito."
+        }
+      ]
+    },
+    {
+      "nome": "Técnico Paranormal",
+      "resumo": "Especialista em otimizar objetos paranormais, extraindo o máximo potencial de armas, equipamentos e artefatos sobrenaturais.",
+      "maldicoes": [
+        {
+          "nivel": 5,
+          "nome": "Ajuste Ofensivo",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Objetos paranormais de dano recebem +3 de bônus."
+        },
+        {
+          "nivel": 10,
+          "nome": "Sintonia Pericial",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Objetos que concedem bônus em perícias dão +2 adicional."
+        },
+        {
+          "nivel": 15,
+          "nome": "Sobrecarga de Dados",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Objetos que concedem dados extras agora dão +2 dados (em vez de +1)."
+        },
+        {
+          "nivel": 20,
+          "nome": "Barreira Reforçada",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Objetos de proteção somam metade de seu RD ao RD principal do usuário."
+        },
+        {
+          "nivel": 25,
+          "nome": "Selagem Amplificada",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Objetos de selamento têm sua eficácia aumentada (efeitos determinados pelo Mestre)."
+        },
+        {
+          "nivel": 30,
+          "nome": "Alquimia Avançada",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Poções de reconstituição triplicam seus dados de cura (ex: 1d6 → 3d6)."
+        },
+        {
+          "nivel": 40,
+          "nome": "Simbiose Paranormal",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "+5 em testes de Paranormal ao portar objetos paranormais. Soma a perícia Paranormal em rolagens de dano/cura com esses objetos."
+        },
+        {
+          "nivel": 50,
+          "nome": "Relíquia Primordial",
+          "custo": "Único",
+          "elemento": "N/A",
+          "descricao": "Ganha um objeto paranormal de classe S (efeitos únicos, a definir pelo Mestre). Exemplos: Arma que corta dimensões, armadura que absorve maldições, etc."
+        }
+      ]
+    },
+    {
+      "nome": "Artesão Paranormal",
+      "resumo": "Mestre da criação de objetos amaldiçoados, transformando matérias-primas paranormais em equipamentos poderosos - com riscos imprevisíveis.",
+      "maldicoes": [
+        {
+          "nivel": 1,
+          "nome": "Ofício Amaldiçoado",
+          "custo": "1x/sessão",
+          "elemento": "N/A",
+          "descricao": "Teste de Ocultismo para criar itens paranormais. Sucesso: item criado. Falha: matéria-prima perdida. Falha crítica: item descontrolado (efeito aleatório)."
+        },
+        {
+          "nivel": 5,
+          "nome": "Aprendiz das Runas",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Itens criados são de classe F (básicos)."
+        },
+        {
+          "nivel": 10,
+          "nome": "Artífice das Sombras",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Itens evoluem para classe E."
+        },
+        {
+          "nivel": 15,
+          "nome": "Mestre da Forja Obscura",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Itens classe D."
+        },
+        {
+          "nivel": 20,
+          "nome": "Archote da Corrupção",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Itens classe C."
+        },
+        {
+          "nivel": 25,
+          "nome": "Lâmina do Abismo",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Itens classe B."
+        },
+        {
+          "nivel": 30,
+          "nome": "Forjador de Realidades",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Itens classe A."
+        },
+        {
+          "nivel": 40,
+          "nome": "Mãos do Deus Proibido",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Itens classe S."
+        },
+        {
+          "nivel": 50,
+          "nome": "Obra-Prima do Caos",
+          "custo": "Único",
+          "elemento": "N/A",
+          "descricao": "Cria 1 item classe X."
+        }
+      ]
+    },
+    {
+      "nome": "Imortal",
+      "resumo": "Possui um pacto com a morte, ganhando habilidades regenerativas e defesas sobrenaturais que se ativam em situações extremas.",
+      "maldicoes": [
+        {
+          "nivel": 1,
+          "nome": "Pacto de Sangue",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Ao chegar à metade da vida, cura 3d6 PV automaticamente."
+        },
+        {
+          "nivel": 5,
+          "nome": "Corpo Fortificado",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "+2 em Físico e +2 na perícia Instabilidade."
+        },
+        {
+          "nivel": 10,
+          "nome": "Instinto de Sobrevivência",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Na metade da vida: +2 em Esquiva e ataques."
+        },
+        {
+          "nivel": 15,
+          "nome": "Reserva Vital",
+          "custo": "13 PA",
+          "elemento": "N/A",
+          "descricao": "Ganha 3d6 de vida temporária (acima do máximo) antes de batalhas."
+        },
+        {
+          "nivel": 20,
+          "nome": "Inalterável",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Imunidade a sangramento e veneno. Estanca feridas automaticamente."
+        },
+        {
+          "nivel": 25,
+          "nome": "Espinhos de Sangue",
+          "custo": "Reação",
+          "elemento": "N/A",
+          "descricao": "Ao sofrer ataque corpo a corpo, causa 1d12 de dano retroativo."
+        },
+        {
+          "nivel": 30,
+          "nome": "Regeneração Caótica",
+          "custo": "Reação (Crítico)",
+          "elemento": "N/A",
+          "descricao": "Ao levar crítico: role 1d6. Se resultar em 6, cura 2d6 PV."
+        },
+        {
+          "nivel": 40,
+          "nome": "Fênix Negra",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Ao chegar a 0 PV, o último dano recebido vira cura (1x/cena)."
+        },
+        {
+          "nivel": 50,
+          "nome": "Renascimento das Cinzas",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Ao voltar de 'morrendo': +1 dado em ataques e crítico reduzido em -1."
+        }
+      ]
+    },
+    {
+      "nome": "Invencível",
+      "resumo": "Lenda viva cuja presença debilita inimigos e inspira aliados, dominando o campo de batalha com táticas e autoridade.",
+      "maldicoes": [
+        {
+          "nivel": 5,
+          "nome": "Aura do Vencedor",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Inimigos devem passar em teste de Vontade (DT = seu Diplomacia) ou sofrer -2 em ataques contra você."
+        },
+        {
+          "nivel": 10,
+          "nome": "Leitura de Combate",
+          "custo": "1 Turno",
+          "elemento": "N/A",
+          "descricao": "Teste de Luta para identificar ponto fraco. Sucesso: +1 dado no próximo ataque."
+        },
+        {
+          "nivel": 15,
+          "nome": "Grito de Guerra",
+          "custo": "Ação",
+          "elemento": "N/A",
+          "descricao": "Teste de Diplomacia para conceder +2 em testes a aliados por 1 cena."
+        },
+        {
+          "nivel": 20,
+          "nome": "Foco no Alvo",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Se identificar ponto fraco (nível 10), todos ataques contra o alvo ganham +1 dado permanentemente."
+        },
+        {
+          "nivel": 25,
+          "nome": "Comando Tático",
+          "custo": "15 PA + Ação",
+          "elemento": "N/A",
+          "descricao": "Teste de Diplomacia (DT 15) para dar +1 dado de dano a aliados por 1 rodada."
+        },
+        {
+          "nivel": 30,
+          "nome": "Corpo Perfeito",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "+4 em Força e +2 em Luta."
+        },
+        {
+          "nivel": 40,
+          "nome": "Lenda Viva",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "+5 em Diplomacia e RD 10 universal."
+        },
+        {
+          "nivel": 50,
+          "nome": "Dominação Absoluta",
+          "custo": "20 PA",
+          "elemento": "N/A",
+          "descricao": "Inimigos fracos/feridos devem passar em teste de Vontade ou escolher: juntar-se a você, render-se ou fugir."
+        }
+      ]
+    },
+    {
+      "nome": "Domador de Bestas",
+      "resumo": "Controla criaturas paranormais através de voz, olhar e presença, manipulando-as com técnicas que variam de persuação a dominação absoluta.",
+      "maldicoes": [
+        {
+          "nivel": 5,
+          "nome": "Ordem de Afastamento",
+          "custo": "Ação",
+          "elemento": "N/A",
+          "descricao": "Teste de Diplomacia vs Vontade. Se a criatura falhar, evita combatê-lo por 1d4 turnos."
+        },
+        {
+          "nivel": 10,
+          "nome": "Olhar Paralisante",
+          "custo": "Ação",
+          "elemento": "N/A",
+          "descricao": "Teste de Intimidação vs Vontade. Falha: criatura paralizada por 1d4 rodadas."
+        },
+        {
+          "nivel": 15,
+          "nome": "Controle Bestial",
+          "custo": "Ação",
+          "elemento": "N/A",
+          "descricao": "Força criatura a atacar aliados com teste de Vontade para resistir."
+        },
+        {
+          "nivel": 20,
+          "nome": "Grito da Fera",
+          "custo": "15 PA",
+          "elemento": "N/A",
+          "descricao": "Teste de Intimidação. Sucesso: criaturas sofrem -1 dado contra você por 1d4 rodadas."
+        },
+        {
+          "nivel": 25,
+          "nome": "Predador Alfa",
+          "custo": "20 PA",
+          "elemento": "N/A",
+          "descricao": "+5 de dano e +1 dado em testes contra criaturas por 1d4 rodadas."
+        },
+        {
+          "nivel": 30,
+          "nome": "Inevitabilidade",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Criaturas têm -10 em Esquiva contra você."
+        },
+        {
+          "nivel": 40,
+          "nome": "Decreto do Domador",
+          "custo": "20 PA",
+          "elemento": "N/A",
+          "descricao": "Criaturas fracas/feridas devem escolher: juntar-se a você, render-se ou fugir (teste de Vontade para resistir)."
+        },
+        {
+          "nivel": 50,
+          "nome": "Voz do Abismo",
+          "custo": "20 PA",
+          "elemento": "N/A",
+          "descricao": "Criaturas com metade da vida que falharem na DT amaldiçoada são obliteradas instantaneamente."
+        }
+      ]
+    },
+    {
+      "nome": "Caronte",
+      "resumo": "Intermediário entre os vivos e as almas esquecidas, capaz de purificá-las, invocar sombras e manipular a essência espiritual.",
+      "maldicoes": [
+        {
+          "nivel": 5,
+          "nome": "Purificador de Almas",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "+1 dado contra criaturas esquecidas. Derrotá-las gera cristais de alma (purificação em vez de morte)."
+        },
+        {
+          "nivel": 10,
+          "nome": "Pacto de Neutralidade",
+          "custo": "Ação",
+          "elemento": "N/A",
+          "descricao": "Teste de Diplomacia para fazer esquecidos agirem com neutralidade ou simpatia."
+        },
+        {
+          "nivel": 15,
+          "nome": "Golpe da Alma",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Substitui testes de Luta/Pontaria por Energia Paranormal (+2 no acerto e soma do atributo ao dano)."
+        },
+        {
+          "nivel": 20,
+          "nome": "Aliado Esquecido",
+          "custo": "Missão",
+          "elemento": "N/A",
+          "descricao": "Convence um esquecido a ajudar (exige descobrir nome completo ou objeto importante em vida)."
+        },
+        {
+          "nivel": 25,
+          "nome": "Barreira Espiritual",
+          "custo": "20 PA",
+          "elemento": "N/A",
+          "descricao": "Escudo de alma com +30 PV temporários."
+        },
+        {
+          "nivel": 30,
+          "nome": "Melodia da Vida",
+          "custo": "Ação",
+          "elemento": "N/A",
+          "descricao": "Cura 5d6 em aliados num raio de 6m."
+        },
+        {
+          "nivel": 40,
+          "nome": "Invocação das Sombras",
+          "custo": "20 PA",
+          "elemento": "N/A",
+          "descricao": "Invoca espíritos de mortos ligados a você (mais fortes que esquecidos)."
+        },
+        {
+          "nivel": 50,
+          "nome": "Cântico Final",
+          "custo": "Escolha",
+          "elemento": "N/A",
+          "descricao": "Escolha 1: \n- **Melodia da Morte**: 5d12 de dano de alma/rodada (incurável exceto por cristais). \n- **Melodia da Alma**: Aliados ganham +3d10 PV temporários e +1 dado em testes/dano."
+        }
+      ]
+    },
+    {
+      "nome": "Sensitivo",
+      "resumo": "Percebe perigos antes que aconteçam, usando intuição sobrenatural para evitar desastres e manipular a sorte a seu favor.",
+      "maldicoes": [
+        {
+          "nivel": 5,
+          "nome": "Premonição",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Ao entrar em uma cena, o Mestre rola um dado secreto para alertar sobre ameaças ocultas (pessoas, objetos ou criaturas perigosas)."
+        },
+        {
+          "nivel": 10,
+          "nome": "Sexto Sentido",
+          "custo": "Reação",
+          "elemento": "N/A",
+          "descricao": "Ganha 1 ação extra para evitar perigos iminentes (esconder-se, desviar de armadilhas). +2 em Iniciativa."
+        },
+        {
+          "nivel": 15,
+          "nome": "Sorte Improvável",
+          "custo": "Reação (Crítico)",
+          "elemento": "N/A",
+          "descricao": "Ao sofrer um ataque crítico, role um dado. Se também tirar crítico, o ataque inimigo erra automaticamente."
+        },
+        {
+          "nivel": 20,
+          "nome": "Esquiva Instintiva",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "+5 em Esquiva."
+        },
+        {
+          "nivel": 25,
+          "nome": "Visão do Futuro",
+          "custo": "20 PA",
+          "elemento": "N/A",
+          "descricao": "Teste de Intuição para prever o próximo ataque inimigo. Se explicar lógicamente como evitar, anula o ataque sem rolagem. Cooldown: 1d4 rodadas."
+        },
+        {
+          "nivel": 30,
+          "nome": "Maldição do Azar",
+          "custo": "20 PA",
+          "elemento": "N/A",
+          "descricao": "Marca um alvo: falha crítica dele passa a ser 10+."
+        },
+        {
+          "nivel": 40,
+          "nome": "Amuleto da Sorte",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Vantagem (+1d20) em todos os testes. Se quebrar: desvantagem (-1d20) até ser reparado."
+        },
+        {
+          "nivel": 50,
+          "nome": "Auréola da Fortuna",
+          "custo": "20 PA",
+          "elemento": "N/A",
+          "descricao": "Seu crítico vira 15+. Aliados em média distância ganham efeito do Amuleto da Sorte por 1 cena."
+        }
+      ]
+    },
+    {
+      "nome": "Gênio",
+      "resumo": "Intelecto excepcional que permite dominar habilidades rapidamente, adaptar-se a situações e explorar fraquezas inimigas com precisão científica.",
+      "maldicoes": [
+        {
+          "nivel": 5,
+          "nome": "Aprendizado Acelerado",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Primeiro ponto investido em qualquer perícia conta como +2."
+        },
+        {
+          "nivel": 10,
+          "nome": "Adaptação Tática",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Substitui Agilidade por Inteligência em Pontaria, Inteligência por Luta (ataques vitais) e Inteligência por Esquiva (previsão estratégica)."
+        },
+        {
+          "nivel": 15,
+          "nome": "Ilusão de Perigo",
+          "custo": "Ação",
+          "elemento": "N/A",
+          "descricao": "Teste de Enganação para fazer inimigos acreditarem que você é uma ameaça colossal (-2 em ataques contra você)."
+        },
+        {
+          "nivel": 20,
+          "nome": "Análise de Campo",
+          "custo": "Ação",
+          "elemento": "N/A",
+          "descricao": "Teste de Inteligência puro para identificar posições vantajosas em batalha. +2 em Pontaria."
+        },
+        {
+          "nivel": 25,
+          "nome": "Estimulante Cerebral",
+          "custo": "15 PA",
+          "elemento": "N/A",
+          "descricao": "Usa efeito de estimulante sem desvantagens. Ação para encontrar ponto fraco: +2d6 de dano e causa sangramento."
+        },
+        {
+          "nivel": 30,
+          "nome": "Improvisação Criativa",
+          "custo": "20 PA",
+          "elemento": "N/A",
+          "descricao": "Usa o cenário para efeitos táticos (ex: derrubar lustres, desarmar inimigos). Dano e efeitos definidos pelo Mestre."
+        },
+        {
+          "nivel": 40,
+          "nome": "Polímata",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "+2 em todas as perícias de Inteligência."
+        },
+        {
+          "nivel": 50,
+          "nome": "Mimetismo Cognitivo",
+          "custo": "20 PA",
+          "elemento": "N/A",
+          "descricao": "Copia 2 habilidades de inimigos/aliados por 1 cena (teste de Inteligência vs DT do alvo)."
+        }
+      ]
+    },
+    {
+      "nome": "Armeiro",
+      "resumo": "Especialista em modificações táticas, capaz de aprimorar armas e equipamentos durante missões com melhorias temporárias.",
+      "maldicoes": [
+        {
+          "nivel": 5,
+          "nome": "Melhoria Assertiva",
+          "custo": "1 uso do kit",
+          "elemento": "N/A",
+          "descricao": "+2 de acerto em armas corpo a corpo ou balísticas."
+        },
+        {
+          "nivel": 10,
+          "nome": "Melhoria Ampliar",
+          "custo": "1 uso do kit",
+          "elemento": "N/A",
+          "descricao": "+5 de dano na arma modificada."
+        },
+        {
+          "nivel": 15,
+          "nome": "Melhoria Lock On",
+          "custo": "1 uso do kit",
+          "elemento": "N/A",
+          "descricao": "Aumenta alcance (curto→médio, médio→longo). Armas longas ganham +1 dado de dano."
+        },
+        {
+          "nivel": 20,
+          "nome": "Melhoria Destruidora",
+          "custo": "1 uso do kit",
+          "elemento": "N/A",
+          "descricao": "Reduz crítico da arma em 2 níveis (ex: 20 → 18)."
+        },
+        {
+          "nivel": 25,
+          "nome": "Melhoria Repetição/Leve",
+          "custo": "1 uso do kit",
+          "elemento": "N/A",
+          "descricao": "Balísticas: atira 2x/ataque. Corpo a corpo: 2 ataques/turno."
+        },
+        {
+          "nivel": 30,
+          "nome": "Melhoria Explosiva",
+          "custo": "1 uso do kit",
+          "elemento": "N/A",
+          "descricao": "Projéteis causam +2d6 de dano explosivo no alvo."
+        },
+        {
+          "nivel": 40,
+          "nome": "Sobrecarga de Melhorias",
+          "custo": "3 usos do kit",
+          "elemento": "N/A",
+          "descricao": "Aplica 3 melhorias simultâneas em uma arma."
+        },
+        {
+          "nivel": 50,
+          "nome": "Torreta Automática",
+          "custo": "Único",
+          "elemento": "N/A",
+          "descricao": "Cria robô torreta (150 PV, 2d12 de dano, crítico 19). Usa seu acerto. Bloqueia 1 slot de kit até ser destruída."
+        }
+      ]
+    },
+    {
+      "nome": "Sangue Quente",
+      "resumo": "Transforma dor em poder, com habilidades que incentivam combate agressivo e manipulação sanguinária.",
+      "maldicoes": [
+        {
+          "nivel": 5,
+          "nome": "Vigor Inabalável",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "+1 PV por nível."
+        },
+        {
+          "nivel": 10,
+          "nome": "Indomável",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Imune a sangramento e atordoado."
+        },
+        {
+          "nivel": 15,
+          "nome": "Golpes Precários",
+          "custo": "Ataque",
+          "elemento": "N/A",
+          "descricao": "Teste de Luta/Pontaria para infligir sangramento."
+        },
+        {
+          "nivel": 20,
+          "nome": "Fúria da Dor",
+          "custo": "15 PA",
+          "elemento": "N/A",
+          "descricao": "Na metade da vida: teste de Físico para ganhar RD 10 temporário."
+        },
+        {
+          "nivel": 25,
+          "nome": "Intimidação Sádica",
+          "custo": "Ação",
+          "elemento": "N/A",
+          "descricao": "Teste de Intimidação vs Vontade para dar -2 em ataques inimigos contra você."
+        },
+        {
+          "nivel": 30,
+          "nome": "Banquete de Sangue",
+          "custo": "Livre/Ação",
+          "elemento": "N/A",
+          "descricao": "Consumir sangue recupera 2d6 PV. Livre se usar arma corpo a corpo."
+        },
+        {
+          "nivel": 40,
+          "nome": "Circulação Frenética",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "2 ataques extras por cena."
+        },
+        {
+          "nivel": 50,
+          "nome": "Domínio Hemático",
+          "custo": "20 PA",
+          "elemento": "N/A",
+          "descricao": "Controle o sangue de alvos sangrando: 5d8 de dano. Crítico: quebra membro (1d4). Falha crítica do alvo: 5→paraplegia, 6→morte instantânea."
+        }
+      ]
+    },
+    {
+      "nome": "Punho de Ferro",
+      "resumo": "Mestre do combate desarmado, usando técnicas brutais que transformam seus punhos em armas letais.",
+      "maldicoes": [
+        {
+          "nivel": 5,
+          "nome": "Soco Básico",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Dano com mãos nuas: 1d6 + Força."
+        },
+        {
+          "nivel": 10,
+          "nome": "Corpo Esculpido",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "+4 em Força e +2 em Luta."
+        },
+        {
+          "nivel": 15,
+          "nome": "Impacto Certeiro",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Dano com mãos nuas: 2d6 + Força."
+        },
+        {
+          "nivel": 20,
+          "nome": "Técnica Marcial",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Soma bônus de Luta ao dano de mãos nuas."
+        },
+        {
+          "nivel": 25,
+          "nome": "Punho de Aço",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Dano com mãos nuas: 3d6 + Força."
+        },
+        {
+          "nivel": 30,
+          "nome": "Golpe Atordoante",
+          "custo": "20 PA",
+          "elemento": "N/A",
+          "descricao": "Deixa inimigo atordoado por 1 cena (teste de Resistência para reduzir)."
+        },
+        {
+          "nivel": 40,
+          "nome": "Nocaute Implacável",
+          "custo": "Crítico",
+          "elemento": "N/A",
+          "descricao": "Críticos nocauteiam o alvo (atordoado, Esquiva = 0). Teste de Físico DT 15 para recuperar."
+        },
+        {
+          "nivel": 50,
+          "nome": "Fúria Concentrada",
+          "custo": "20 PA",
+          "elemento": "N/A",
+          "descricao": "Soma metade da Força ao dano (acumulativo com outros bônus)."
+        }
+      ]
+    },
+    {
+      "nome": "Mestre das Bestas",
+      "resumo": "Forma laços com criaturas paranormais, dominando-as e evoluindo-as como companheiras de batalha.",
+      "maldicoes": [
+        {
+          "nivel": 5,
+          "nome": "Companheiro F",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Criatura de nível F."
+        },
+        {
+          "nivel": 10,
+          "nome": "Companheiro E",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Criatura evolui para nível E."
+        },
+        {
+          "nivel": 15,
+          "nome": "Companheiro D",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Criatura evolui para nível D."
+        },
+        {
+          "nivel": 20,
+          "nome": "Companheiro C",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Criatura evolui para nível C."
+        },
+        {
+          "nivel": 25,
+          "nome": "Companheiro B",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Criatura evolui para nível B."
+        },
+        {
+          "nivel": 30,
+          "nome": "Companheiro A",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Criatura evolui para nível A."
+        },
+        {
+          "nivel": 40,
+          "nome": "Companheiro S",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Criatura evolui para nível S."
+        },
+        {
+          "nivel": 50,
+          "nome": "Companheiro X",
+          "custo": "Passivo",
+          "elemento": "N/A",
+          "descricao": "Criatura alcança nível X."
+        }
+      ]
+    },
+    {
+      "nome": "Veloz",
+      "resumo": "Combate em velocidade sobre-humana, com esquivas impossíveis, múltiplas ações e movimentos que desafiam a percepção inimiga.",
+      "maldicoes": [
+        {
+          "nivel": 5,
+          "nome": "Reflexos Afiados",
+          "custo": "Passivo",
+          "elemento": "Agilidade",
+          "descricao": "+5 em Esquiva."
+        },
+        {
+          "nivel": 10,
+          "nome": "Movimento Acelerado",
+          "custo": "Passivo",
+          "elemento": "Mobilidade",
+          "descricao": "Ganha **2 ações de movimento** por turno."
+        },
+        {
+          "nivel": 15,
+          "nome": "Golpes Velozes",
+          "custo": "Passivo",
+          "elemento": "Adaptação",
+          "descricao": "Substitui **Força por Agilidade** em testes de Luta, com **+2 de bônus**."
+        },
+        {
+          "nivel": 20,
+          "nome": "Esquiva Balística",
+          "custo": "Passivo",
+          "elemento": "Precisão",
+          "descricao": "Pode usar **Esquiva contra ataques à distância** (balas, flechas, projéteis)."
+        },
+        {
+          "nivel": 25,
+          "nome": "Aceleração Instantânea",
+          "custo": "20 PA",
+          "elemento": "Tempo",
+          "descricao": "Ganha **2 ações padrão extras** em uma cena."
+        },
+        {
+          "nivel": 30,
+          "nome": "Fúria Veloz",
+          "custo": "Passivo",
+          "elemento": "Evasão",
+          "descricao": "Inimigos sofrem **-2 em ataques contra você** devido à sua velocidade."
+        },
+        {
+          "nivel": 40,
+          "nome": "Intervenção Relâmpago",
+          "custo": "20 PA (Reação)",
+          "elemento": "Proteção",
+          "descricao": "Se um aliado a **curta distância** for atacado, você pode movê-lo instantaneamente, concedendo **+5 em Esquiva** contra o ataque."
+        },
+        {
+          "nivel": 50,
+          "nome": "Turbilhão de Ações",
+          "custo": "Passivo",
+          "elemento": "Velocidade",
+          "descricao": "**Críticos concedem um ataque extra.** Ação 'Empurrar' move você ou outro ser **25m** (livre 1x/turno)."
+        }
+      ]
+    }
+  ]
+}

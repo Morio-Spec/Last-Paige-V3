@@ -1,0 +1,125 @@
+{
+  "_README": "FICHA LAST PAIGE — lista de PERÍCIAS\n\n  grupo   -> nome do bloco onde a perícia aparece\n  nome    -> nome da perícia (não repita nomes)\n  atributo -> abreviatura do atributo usado como bônus:\n            Fis | Agi | For | Car | Int | EP\n\nPara adicionar uma perícia nova basta copiar um bloco {...}.\nO valor de cada perícia (o \"0\" editável) fica salvo na ficha do personagem.",
+  "pericias": [
+    {
+      "grupo": "Combate",
+      "nome": "Pontaria",
+      "atributo": "Agi"
+    },
+    {
+      "grupo": "Combate",
+      "nome": "Fortitude",
+      "atributo": "Fis"
+    },
+    {
+      "grupo": "Combate",
+      "nome": "Luta",
+      "atributo": "For"
+    },
+    {
+      "grupo": "Combate",
+      "nome": "Investigação",
+      "atributo": "Int"
+    },
+    {
+      "grupo": "Combate",
+      "nome": "Percepção",
+      "atributo": "Int"
+    },
+    {
+      "grupo": "Social",
+      "nome": "Intuição",
+      "atributo": "Int"
+    },
+    {
+      "grupo": "Social",
+      "nome": "Intimidação",
+      "atributo": "Car"
+    },
+    {
+      "grupo": "Social",
+      "nome": "Enganação",
+      "atributo": "Car"
+    },
+    {
+      "grupo": "Social",
+      "nome": "Diplomacia",
+      "atributo": "Car"
+    },
+    {
+      "grupo": "Social",
+      "nome": "Pilotagem",
+      "atributo": "Agi"
+    },
+    {
+      "grupo": "Técnica",
+      "nome": "Tecnologias",
+      "atributo": "Int"
+    },
+    {
+      "grupo": "Técnica",
+      "nome": "Instabilidade",
+      "atributo": "Fis"
+    },
+    {
+      "grupo": "Técnica",
+      "nome": "Medicina",
+      "atributo": "Int"
+    },
+    {
+      "grupo": "Técnica",
+      "nome": "Paranormal",
+      "atributo": "EP"
+    },
+    {
+      "grupo": "Técnica",
+      "nome": "Acrobacia",
+      "atributo": "Agi"
+    },
+    {
+      "grupo": "Sobrevivência",
+      "nome": "História",
+      "atributo": "Int"
+    },
+    {
+      "grupo": "Sobrevivência",
+      "nome": "Linguagens",
+      "atributo": "Int"
+    },
+    {
+      "grupo": "Sobrevivência",
+      "nome": "Vontade",
+      "atributo": "Int"
+    },
+    {
+      "grupo": "Sobrevivência",
+      "nome": "Furtividade",
+      "atributo": "Agi"
+    },
+    {
+      "grupo": "Sobrevivência",
+      "nome": "Sobrevivência",
+      "atributo": "Int"
+    },
+    {
+      "grupo": "Sobrevivência",
+      "nome": "Atletismo",
+      "atributo": "Agi"
+    },
+    {
+      "grupo": "Sobrevivência",
+      "nome": "Ofício",
+      "atributo": "Int"
+    },
+    {
+      "grupo": "Sobrevivência",
+      "nome": "Iniciativa",
+      "atributo": "Agi"
+    },
+    {
+      "grupo": "Sobrevivência",
+      "nome": "Reparos",
+      "atributo": "Int"
+    }
+  ]
+}

@@ -1,0 +1,255 @@
+/* ============================================================
+   FICHA LAST PAIGE — print.css
+   Layout de exportação em PDF (window.print / Ctrl+P).
+   Cor de fundo é forçada para o PDF sair como uma folha limpa.
+   ============================================================ */
+
+@page {
+    size: A4 portrait;
+    margin: 12mm 10mm;
+}
+
+@media print {
+    :root {
+        /* variáveis neutras para impressão */
+        --bg: #ffffff;
+        --bg-deep: #ffffff;
+        --surface: #ffffff;
+        --surface-2: #ffffff;
+        --surface-solid: #ffffff;
+        --border: #999999;
+        --border-strong: #333333;
+        --text: #111111;
+        --text-dim: #555555;
+        --text-bright: #000000;
+        --accent: #14532d;
+        --accent-soft: transparent;
+        --danger: #8a1020;
+        --danger-soft: transparent;
+        --warn: #7a5a00;
+        --info: #14487a;
+        --shadow: none;
+        --shadow-sm: none;
+    }
+
+    html,
+    body {
+        background: #fff !important;
+        background-color: #fff !important;
+        background-image: none !important;
+        background-attachment: scroll !important;
+        color: #111 !important;
+        font-size: 9.5pt;
+        line-height: 1.35;
+        height: auto !important;
+        min-height: 0 !important;
+    }
+
+    /* Elementos que não fazem sentido no papel */
+    .bg-runes,
+    .toolbar,
+    .save-state,
+    .shortcut-hint,
+    .toasts,
+    .conditions,
+    .modal,
+    .skip-link,
+    .item__actions,
+    .resource__controls,
+    .card__hint,
+    .card__foot-hint,
+    .card__actions,
+    .card__header .btn,
+    .dbox__tip,
+    .app-footer__sig,
+    .autocomplete,
+    .app-header__status {
+        display: none !important;
+    }
+
+    /* Cabeçalho */
+    .app-header {
+        position: static !important;
+        padding: 0 0 6px !important;
+        background: none !important;
+        border-bottom: 2px solid #333 !important;
+        backdrop-filter: none !important;
+        margin-bottom: 8px;
+    }
+
+    .brand__mark { animation: none; color: #333; }
+
+    .brand__title {
+        font-size: 18pt;
+        color: #000 !important;
+        text-shadow: none !important;
+    }
+
+    .badge-chip {
+        border: 1px solid #777 !important;
+        background: none !important;
+        color: #333 !important;
+        padding: 1px 6px;
+        font-size: 7.5pt;
+    }
+
+    .badge-cond { border-color: #555 !important; background: none !important; color: #222 !important; }
+
+    /* Cartas */
+    .app-main { padding: 0 !important; max-width: none; }
+
+    .card--relic {
+        background: #fff !important;
+        border: 1px solid #999 !important;
+        border-radius: 6px !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        animation: none !important;
+        margin-bottom: 6px;
+        height: auto !important;
+    }
+
+    /* Só blocos pequenos não devem quebrar entre páginas */
+    .resource,
+    .derivado,
+    .attr,
+    .skill,
+    .item,
+    .dbox {
+        page-break-inside: avoid;
+    }
+
+    .card__corner { display: none !important; }
+
+    .card__header {
+        padding: 4px 8px !important;
+        background: #f0f0f0 !important;
+        border-bottom: 1px solid #999 !important;
+    }
+
+    .card__body { padding: 6px 8px !important; }
+
+    .row { display: flex; flex-wrap: wrap; margin: 0 -4px !important; }
+
+    [class*="col-"] { padding: 0 4px !important; }
+
+    .card__title { color: #000 !important; font-size: 10.5pt; }
+
+    .card__title--danger { color: #8a1020 !important; }
+
+    /* Campos editáveis: sem tracejado, com valor limpo */
+    .editable {
+        background: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        color: #000 !important;
+        min-height: 0 !important;
+    }
+
+    [data-lock="false"] .editable {
+        border: none !important;
+        background: none !important;
+    }
+
+    .field__label { color: #444 !important; font-size: 7pt; }
+    .field__value { border-bottom: 1px dotted #bbb !important; }
+
+    /* Recursos */
+    .resource { border: 1px solid #bbb !important; background: #fff !important; padding: 5px 6px !important; }
+
+    .resource__bar {
+        border: 1px solid #999 !important;
+        background: #fff !important;
+        height: 10px !important;
+    }
+
+    .resource__bar::after { display: none; }
+
+    .resource__fill {
+        background: #bbb !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .resource__name { color: #000 !important; }
+
+    .derivado { border: 1px solid #bbb !important; background: #fff !important; }
+
+    .derivado--dt .derivado__value {
+        border: 1.5px solid #333 !important;
+        background: none !important;
+        box-shadow: none !important;
+        color: #000 !important;
+    }
+
+    /* Desespero */
+    .desperation-track { grid-template-columns: repeat(15, 1fr) !important; gap: 2px !important; }
+
+    .dbox {
+        aspect-ratio: auto !important;
+        height: 14mm !important;
+        border: 1px solid #666 !important;
+        background: #fff !important;
+        color: #000 !important;
+        animation: none !important;
+        box-shadow: none !important;
+    }
+
+    .dbox.is-filled {
+        background: #444 !important;
+        color: #fff !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    /* Listas */
+    .item-list { max-height: none !important; overflow: visible !important; }
+
+    .item {
+        border: 1px solid #bbb !important;
+        background: #fff !important;
+        animation: none !important;
+    }
+
+    .item--curse { border-color: #8a1020 !important; }
+    .item--curse:not(.is-active) { opacity: 1 !important; filter: none !important; }
+    .item__name { color: #000 !important; }
+    .item--curse .item__name { color: #8a1020 !important; }
+    .item__desc { color: #333 !important; }
+    .item__glyph { border: 1px solid #999 !important; color: #333 !important; background: #fff !important; }
+
+    .empty-state { border: 1px dashed #bbb !important; background: none !important; padding: 8px !important; }
+
+    /* Perícias */
+    .skills { grid-template-columns: repeat(3, 1fr) !important; gap: 4px !important; }
+
+    .skill__roll { display: none !important; }
+
+    .skill-group__title { color: #000 !important; border-bottom-color: #bbb !important; }
+
+    /* Rolagens */
+    .rolls__list { max-height: none !important; overflow: visible !important; }
+
+    .roll {
+        border: 1px solid #999 !important;
+        background: none !important;
+        color: #333 !important;
+        animation: none !important;
+    }
+
+    .roll--crit { border-color: #14532d !important; color: #14532d !important; }
+    .roll--falha { border-color: #8a1020 !important; color: #8a1020 !important; }
+
+    .app-footer { padding: 6px 0 0 !important; border-top: 1px solid #999 !important; }
+
+    /* Evita cortes feios */
+    h2, h3 { page-break-after: avoid; }
+
+    a[href]::after { content: ""; }
+
+    * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}

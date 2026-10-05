@@ -1,0 +1,87 @@
+{
+  "_README": "FICHA LAST PAIGE — efeitos do sistema de DESPERO\n\nExistem 15 níveis de desespero (1 a 15). Para cada nível:\n  nivel      -> número de 1 a 15 (tem que ser sequencial)\n  nome       -> título curto do efeito (aparece na caixa e no tooltip)\n  descricao  -> texto do efeito. ESTE TEXTO É EDITÁVEL e o que você\n               digitar aqui substitui o original da regra.\n\n\"efeitosAutomaticos\" define regras automáticas aplicadas ao chegar no nível:\n  { \"nivel\": 15, \"mensagem\": \"...\", \"insanidade\": 1 }\n  -> ao chegar no nível 15 soma 1 de Insanidade e mostra a mensagem.\n  Apague o bloco para desligar esse efeito automático.",
+  "efeitos": [
+    {
+      "nivel": 1,
+      "nome": "Primer Sussurro",
+      "descricao": "1d6 psi"
+    },
+    {
+      "nivel": 2,
+      "nome": "Voz na Parede",
+      "descricao": "2d6 psi"
+    },
+    {
+      "nivel": 3,
+      "nome": "Lábios no escuro",
+      "descricao": "3d6 psi"
+    },
+    {
+      "nivel": 4,
+      "nome": "Sussurros que sobem",
+      "descricao": "4d6 psi"
+    },
+    {
+      "nivel": 5,
+      "nome": "A fissura se abre",
+      "descricao": "5d6 psi"
+    },
+    {
+      "nivel": 6,
+      "nome": "Adrenalina Amaldiçoada",
+      "descricao": "Desesperado- 2 em intelecto carisma e energia paranormal. +1 em físico, força, agilidade (adrenalina)"
+    },
+    {
+      "nivel": 7,
+      "nome": "Sangue nos ouvidos",
+      "descricao": "5d6 psiquê"
+    },
+    {
+      "nivel": 8,
+      "nome": "O dado decide",
+      "descricao": "ataque de desespero= duração cena ou até teste de diplomacia sucesso. escolha um numero no dado de 1d6 pra cada ser presente na cena. o número que cair será atacado. após isso+ condição desesperado."
+    },
+    {
+      "nivel": 9,
+      "nome": "Coral na garganta",
+      "descricao": "5d6 psiquê"
+    },
+    {
+      "nivel": 10,
+      "nome": "Tremor nas mãos",
+      "descricao": "tremer. -5 em agilidade. (sem vantagens da adrenalina)"
+    },
+    {
+      "nivel": 11,
+      "nome": "Gritaria abafada",
+      "descricao": "6d6 psiquê"
+    },
+    {
+      "nivel": 12,
+      "nome": "Medo Oldado",
+      "descricao": "medroso= você está morrendo de medo. você não pode atacar nada nesta cena, você só quer fugir ou se esconder. +adrenalina."
+    },
+    {
+      "nivel": 13,
+      "nome": "Rugido interno",
+      "descricao": "7d7 psiquê"
+    },
+    {
+      "nivel": 14,
+      "nome": "Terror absoluto",
+      "descricao": "aterrorizado"
+    },
+    {
+      "nivel": 15,
+      "nome": "A última ficha",
+      "descricao": "1d6 INSANIDADE"
+    }
+  ],
+  "efeitosAutomaticos": [
+    {
+      "nivel": 15,
+      "insanidade": 1,
+      "mensagem": "+1 de Insanidade — você tocou o fundo do poço."
+    }
+  ]
+}

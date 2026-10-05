@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark" data-lock="true">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="color-scheme" content="dark light">
+    <meta name="description" content="Ficha de personagem para RPG de mesa sobrenatural — Ficha Last Paige.">
+    <title>•X• FICHA LAST PAIGE •X•</title>
+
+    <!-- Bootstrap 5 + Bootstrap Icons (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+          crossorigin="anonymous">
+
+    <!-- Tipografia: Cinzel (títulos rituais) + Inter (corpo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Tema da ficha -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" id="favicon">
+    <link rel="alternate icon" href="assets/favicon.ico">
+</head>
+<body>
+
+<!-- ===================== Decoração de fundo (runas) ===================== -->
+<div class="bg-runes" aria-hidden="true">
+    <span class="rune rune-svg" style="--x:8%;  --y:14%; --d:0s;    --dur:26s"></span>
+    <span class="rune rune-svg" style="--x:72%; --y:22%; --d:-6s;   --dur:31s"></span>
+    <span class="rune rune-svg" style="--x:42%; --y:58%; --d:-12s;  --dur:28s"></span>
+    <span class="rune rune-svg" style="--x:86%; --y:72%; --d:-18s;  --dur:34s"></span>
+    <span class="rune rune-svg" style="--x:18%; --y:82%; --d:-3s;   --dur:30s"></span>
+    <span class="rune rune-x"    style="--x:12%; --y:32%; --d:0s;    --dur:40s">•X•</span>
+    <span class="rune rune-x"    style="--x:78%; --y:48%; --d:-14s;  --dur:44s">•X•</span>
+    <span class="rune rune-x"    style="--x:52%; --y:16%; --d:-22s;  --dur:38s">•X•</span>
+    <span class="rune rune-x"    style="--x:28%; --y:64%; --d:-8s;   --dur:42s">•X•</span>
+</div>
+
+<a class="skip-link" href="#sec-combate">Pular para o painel de combate</a>
+
+<!-- ===================== Cabeçalho ===================== -->
+<header class="app-header">
+    <div class="app-header__main">
+        <div class="brand">
+            <span class="brand__mark" aria-hidden="true">✶</span>
+            <div class="brand__text">
+                <h1 class="brand__title editable"
+                    id="ficha-nome"
+                    data-bind="nome"
+                    data-label="Título da ficha"
+                    contenteditable="true" spellcheck="false"
+                    role="textbox" aria-multiline="false" aria-label="Título da ficha"
+                    tabindex="0">FICHA LAST PAIGE</h1>
+                <div class="brand__badges">
+                    <span class="badge-chip" id="badge-trilha" title="Trilha escolhida">
+                        <i class="bi bi-signpost-split" aria-hidden="true"></i>
+                        <span data-text="trilha.nome">Sem trilha</span>
+                    </span>
+                    <span class="badge-chip" id="badge-nivel" title="Nível do personagem">
+                        <i class="bi bi-stars" aria-hidden="true"></i>
+                        Nível <span data-text="nivel">1</span>
+                    </span>
+                    <span class="badge-chip badge-chip--danger" id="badge-desespero" title="Nível de desespero">
+                        <i class="bi bi-exclamation-triangle" aria-hidden="true"></i>
+                        Desespero <span data-text="desespero">0</span>/15
+                    </span>
+                    <span class="brand__conditions" id="badges-condicoes"
+                          aria-label="Condições ativas"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="toolbar" role="toolbar" aria-label="Ações da ficha">
+            <div class="btn-group" role="group" aria-label="Gerenciar fichas">
+                <button class="btn btn-ghost" id="btn-fichas" data-modal-open="modalFichas"
+                        aria-label="Gerenciar fichas salvas" title="Fichas salvas (Ctrl+1)">
+                    <i class="bi bi-journals" aria-hidden="true"></i>
+                    <span class="d-none d-lg-inline">Fichas</span>
+                </button>
+            </div>
+
+            <div class="btn-group" role="group" aria-label="Salvar e exportar">
+                <button class="btn btn-accent" id="btn-salvar"
+                        aria-label="Salvar ficha agora" title="Salvar (Ctrl+S)">
+                    <i class="bi bi-save2" aria-hidden="true"></i>
+                    <span class="d-none d-md-inline">Salvar</span>
+                </button>
+                <button class="btn btn-ghost dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" aria-label="Exportar ficha" title="Exportar (Ctrl+P = PDF)">
+                    <i class="bi bi-box-arrow-up" aria-hidden="true"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><button class="dropdown-item" id="btn-export-json" type="button">
+                        <i class="bi bi-filetype-json me-2" aria-hidden="true"></i>Exportar JSON</button></li>
+                    <li><button class="dropdown-item" id="btn-export-pdf" type="button">
+                        <i class="bi bi-file-earmark-pdf me-2" aria-hidden="true"></i>Exportar PDF (imprimir)</button></li>
+                    <li><button class="dropdown-item" id="btn-export-png" type="button">
+                        <i class="bi bi-file-earmark-image me-2" aria-hidden="true"></i>Exportar PNG</button></li>
+                </ul>
+            </div>
+
+            <div class="btn-group" role="group" aria-label="Importar">
+                <label for="import-file" class="btn btn-ghost"
+                       aria-label="Importar ficha de um arquivo JSON" title="Importar JSON">
+                    <i class="bi bi-box-arrow-in-down" aria-hidden="true"></i>
+                    <span class="d-none d-lg-inline">Importar</span>
+                </label>
+                <input type="file" id="import-file" accept="application/json,.json" class="visually-hidden">
+            </div>
+
+            <div class="btn-group" role="group" aria-label="Modo de edição">
+                <button class="btn btn-edit" id="btn-editar" aria-pressed="false"
+                        aria-label="Ativar modo de edição" title="Editar (Ctrl+E)">
+                    <i class="bi bi-pencil-square" aria-hidden="true"></i>
+                    <span class="d-none d-md-inline">Editar</span>
+                </button>
+                <button class="btn btn-lock d-none" id="btn-bloquear"
+                        aria-label="Bloquear edição" title="Bloquear (Ctrl+E)">
+                    <i class="bi bi-lock-fill" aria-hidden="true"></i>
+                    <span class="d-none d-md-inline">Bloquear</span>
+                </button>
+            </div>
+
+            <button class="btn btn-theme" id="btn-tema"
+                    aria-label="Trocar tema" title="Trocar tema">
+                <span class="btn-theme__icon" aria-hidden="true"><i class="bi bi-moon-stars" id="tema-icone"></i></span>
+                <span class="d-none d-xl-inline btn-theme__label">Dark Verde</span>
+            </button>
+
+            <button class="btn btn-ghost btn-danger-ghost" id="btn-limpar"
+                    aria-label="Limpar a ficha atual" title="Limpar ficha">
+                <i class="bi bi-trash3" aria-hidden="true"></i>
+            </button>
+
+            <button class="btn btn-ghost" id="btn-audio" aria-pressed="true"
+                    aria-label="Ligar ou desligar a música" title="Música">
+                <i class="bi bi-volume-up" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="app-header__status">
+        <span class="save-state" id="save-feedback" role="status" aria-live="polite">
+            <i class="bi bi-check-circle" aria-hidden="true"></i> <span id="save-feedback-text">carregando…</span>
+        </span>
+        <span class="shortcut-hint d-none d-xl-inline">
+            <kbd>Ctrl</kbd>+<kbd>E</kbd> editar · <kbd>Ctrl</kbd>+<kbd>S</kbd> salvar ·
+            <kbd>Ctrl</kbd>+<kbd>P</kbd> PDF · <kbd>Ctrl</kbd>+<kbd>Z</kbd> desfazer dano
+        </span>
+    </div>
+</header>
+
+<main class="app-main">
+
+    <!-- ======================= COMBATE (acima da dobra) ======================= -->
+    <section id="sec-combate" class="row g-3 mb-3" aria-label="Painel de combate">
+
+        <!-- Recursos -->
+        <div class="col-12 col-lg-8">
+            <article class="card card--relic" data-section="recursos">
+                <span class="card__corner" aria-hidden="true"></span>
+                <header class="card__header">
+                    <h2 class="card__title"><i class="bi bi-heart-pulse" aria-hidden="true"></i> Recursos</h2>
+                    <span class="card__hint" id="recursos-dica">
+                        clique na barra para ajustar · valores recalculados pelo nível e atributos
+                    </span>
+                </header>
+                <div class="card__body">
+                    <div class="row g-3">
+
+                        <!-- HP -->
+                        <div class="col-12 col-sm-4">
+                            <div class="resource" data-res="hp">
+                                <div class="resource__top">
+                                    <span class="resource__name">HP</span>
+                                    <span class="resource__value">
+                                        <span class="editable" id="val-hp-atual" data-bind="recursos.hp.atual"
+                                              contenteditable="true" tabindex="0" role="textbox" aria-label="HP atual">20</span><span
+                                              class="resource__sep">/</span><span class="editable" id="val-hp-max"
+                                              data-bind="recursos.hp.max" contenteditable="true" tabindex="0" role="textbox"
+                                              aria-label="HP máximo">20</span>
+                                    </span>
+                                </div>
+                                <div class="resource__bar" id="bar-hp" role="slider" tabindex="0"
+                                     aria-label="Ajustar HP" aria-valuemin="0" aria-valuenow="20" aria-valuemax="20">
+                                    <div class="resource__fill resource__fill--hp"></div>
+                                </div>
+                                <div class="resource__controls">
+                                    <button class="mini-btn mini-btn--down" data-adj="hp" data-delta="-5"
+                                            aria-label="Perder 5 de HP">-5</button>
+                                    <button class="mini-btn mini-btn--down" data-adj="hp" data-delta="-1"
+                                            aria-label="Perder 1 de HP">-1</button>
+                                    <button class="mini-btn mini-btn--up" data-adj="hp" data-delta="1"
+                                            aria-label="Recuperar 1 de HP">+1</button>
+                                    <button class="mini-btn mini-btn--up" data-adj="hp" data-delta="5"
+                                            aria-label="Recuperar 5 de HP">+5</button>
+                                    <button class="mini-btn mini-btn--undo" data-undo="hp"
+                                            aria-label="Desfazer última alteração de HP"
+                                            title="Desfazer última alteração">⟲</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PA -->
+                        <div class="col-12 col-sm-4">
+                            <div class="resource" data-res="pa">
+                                <div class="resource__top">
+                                    <span class="resource__name">PA</span>
+                                    <span class="resource__value">
+                                        <span class="editable" id="val-pa-atual" data-bind="recursos.pa.atual"
+                                              contenteditable="true" tabindex="0" role="textbox" aria-label="PA atual">12</span><span
+                                              class="resource__sep">/</span><span class="editable" id="val-pa-max"
+                                              data-bind="recursos.pa.max" contenteditable="true" tabindex="0" role="textbox"
+                                              aria-label="PA máximo">12</span>
+                                    </span>
+                                </div>
+                                <div class="resource__bar" id="bar-pa" role="slider" tabindex="0"
+                                     aria-label="Ajustar PA" aria-valuemin="0" aria-valuenow="12" aria-valuemax="12">
+                                    <div class="resource__fill resource__fill--pa"></div>
+                                </div>
+                                <div class="resource__controls">
+                                    <button class="mini-btn mini-btn--down" data-adj="pa" data-delta="-5"
+                                            aria-label="Gastar 5 de PA">-5</button>
+                                    <button class="mini-btn mini-btn--down" data-adj="pa" data-delta="-1"
+                                            aria-label="Gastar 1 de PA">-1</button>
+                                    <button class="mini-btn mini-btn--up" data-adj="pa" data-delta="1"
+                                            aria-label="Recuperar 1 de PA">+1</button>
+                                    <button class="mini-btn mini-btn--up" data-adj="pa" data-delta="5"
+                                            aria-label="Recuperar 5 de PA">+5</button>
+                                    <button class="mini-btn mini-btn--undo" data-undo="pa"
+                                            aria-label="Desfazer última alteração de PA"
+                                            title="Desfazer última alteração">⟲</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Psiquê -->
+                        <div class="col-12 col-sm-4">
+                            <div class="resource" data-res="psi">
+                                <div class="resource__top">
+                                    <span class="resource__name">Psiquê</span>
+                                    <span class="resource__value">
+                                        <span class="editable" id="val-psi-atual" data-bind="recursos.psi.atual"
+                                              contenteditable="true" tabindex="0" role="textbox" aria-label="Psiquê atual">40</span><span
+                                              class="resource__sep">/</span><span class="editable" id="val-psi-max"
+                                              data-bind="recursos.psi.max" contenteditable="true" tabindex="0" role="textbox"
+                                              aria-label="Psiquê máximo">40</span>
+                                    </span>
+                                </div>
+                                <div class="resource__bar" id="bar-psi" role="slider" tabindex="0"
+                                     aria-label="Ajustar Psiquê" aria-valuemin="0" aria-valuenow="40" aria-valuemax="40">
+                                    <div class="resource__fill resource__fill--psi"></div>
+                                </div>
+                                <div class="resource__controls">
+                                    <button class="mini-btn mini-btn--down" data-adj="psi" data-delta="-5"
+                                            aria-label="Perder 5 de Psiquê">-5</button>
+                                    <button class="mini-btn mini-btn--down" data-adj="psi" data-delta="-1"
+                                            aria-label="Perder 1 de Psiquê">-1</button>
+                                    <button class="mini-btn mini-btn--up" data-adj="psi" data-delta="1"
+                                            aria-label="Recuperar 1 de Psiquê">+1</button>
+                                    <button class="mini-btn mini-btn--up" data-adj="psi" data-delta="5"
+                                            aria-label="Recuperar 5 de Psiquê">+5</button>
+                                    <button class="mini-btn mini-btn--undo" data-undo="psi"
+                                            aria-label="Desfazer última alteração de Psiquê"
+                                            title="Desfazer última alteração">⟲</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Derivados -->
+                        <div class="col-12">
+                            <div class="derivados">
+                                <div class="derivado">
+                                    <span class="derivado__name">Insanidade</span>
+                                    <span class="derivado__value">
+                                        <span class="editable" id="val-insanidade" data-bind="insanidade.atual"
+                                              contenteditable="true" tabindex="0" role="textbox" aria-label="Insanidade atual">0</span>
+                                        <span class="derivado__sep">/</span>
+                                        <span class="editable" id="val-insanidade-max" data-bind="insanidade.max"
+                                              contenteditable="true" tabindex="0" role="textbox" aria-label="Insanidade máxima">????</span>
+                                    </span>
+                                </div>
+                                <div class="derivado">
+                                    <span class="derivado__name">Esquiva</span>
+                                    <span class="derivado__value">
+                                        <span class="editable" id="val-esquiva" data-bind="esquiva"
+                                              contenteditable="true" tabindex="0" role="textbox" aria-label="Esquiva">10</span>
+                                    </span>
+                                </div>
+                                <div class="derivado derivado--dt" title="Dificuldade Target da sua energia amaldiçoada">
+                                    <span class="derivado__name">DT Amaldiçoado</span>
+                                    <span class="derivado__value" id="val-dt">10</span>
+                                </div>
+                                <div class="derivado derivado--log">
+                                    <span class="derivado__name">Última alteração</span>
+                                    <span class="derivado__value" id="ultima-alteracao">—</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- Desespero -->
+        <div class="col-12 col-lg-4">
+            <article class="card card--relic card--desperation" data-section="desespero">
+                <span class="card__corner" aria-hidden="true"></span>
+                <header class="card__header">
+                    <h2 class="card__title card__title--danger">
+                        <i class="bi bi-exclamation-triangle" aria-hidden="true"></i> Desespero
+                    </h2>
+                    <span class="desperation-counter">
+                        <span id="despero-nivel">0</span><small>/15</small>
+                    </span>
+                </header>
+                <div class="card__body">
+                    <div class="desperation-track" id="despero-caixas" role="group"
+                         aria-label="Níveis de desespero, clique para definir"></div>
+                    <div class="desperation-effect" id="despero-efeito">
+                        <strong id="despero-efeito-nome">Nenhum efeito ativo</strong>
+                        <p id="despero-efeito-texto">Clique numa caixa para elevar o desespero.</p>
+                    </div>
+                    <p class="card__foot-hint">
+                        <i class="bi bi-info-circle" aria-hidden="true"></i>
+                        Nível 15 aplica <strong>+1 Insanidade</strong> automaticamente.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- ======================= Identidade ======================= -->
+    <section class="row g-3 mb-3" aria-label="Informações básicas">
+        <div class="col-12">
+            <article class="card card--relic" data-section="identidade">
+                <span class="card__corner" aria-hidden="true"></span>
+                <header class="card__header">
+                    <h2 class="card__title"><i class="bi bi-person-vcard" aria-hidden="true"></i> Identidade</h2>
+                    <span class="card__hint">os campos piscam em verde quando você edita</span>
+                </header>
+                <div class="card__body">
+                    <div class="row g-3">
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <label class="field">
+                                <span class="field__label">Jogador</span>
+                                <span class="field__value editable" id="ficha-jogador" data-bind="jogador"
+                                      contenteditable="true" tabindex="0" role="textbox" spellcheck="false"
+                                      aria-label="Nome do jogador">Nome do Jogador</span>
+                            </label>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <label class="field">
+                                <span class="field__label">Personagem</span>
+                                <span class="field__value editable" id="ficha-personagem" data-bind="personagem"
+                                      contenteditable="true" tabindex="0" role="textbox" spellcheck="false"
+                                      aria-label="Nome do personagem">Nome do Personagem</span>
+                            </label>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <label class="field">
+                                <span class="field__label">Idade</span>
+                                <span class="field__value editable" id="ficha-idade" data-bind="idade"
+                                      contenteditable="true" tabindex="0" role="textbox" spellcheck="false"
+                                      aria-label="Idade">-</span>
+                            </label>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <label class="field">
+                                <span class="field__label">Origem</span>
+                                <span class="field__value editable" id="ficha-origem" data-bind="origem"
+                                      contenteditable="true" tabindex="0" role="textbox" spellcheck="false"
+                                      aria-label="Origem">-</span>
+                            </label>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <label class="field">
+                                <span class="field__label">Nível</span>
+                                <span class="field__value editable field__value--num" id="ficha-nivel" data-bind="nivel"
+                                      contenteditable="true" tabindex="0" role="textbox" spellcheck="false"
+                                      aria-label="Nível do personagem">1</span>
+                            </label>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <label class="field">
+                                <span class="field__label">XP</span>
+                                <span class="field__value editable" id="ficha-xp" data-bind="xp"
+                                      contenteditable="true" tabindex="0" role="textbox" spellcheck="false"
+                                      aria-label="Experiência">0/20</span>
+                            </label>
+                        </div>
+
+                        <div class="col-12 col-lg-6">
+                            <div class="field field--autocomplete">
+                                <span class="field__label" id="label-trilha">
+                                    <i class="bi bi-signpost-split" aria-hidden="true"></i> Trilha
+                                    <span class="field__tag" id="path-tag">nenhuma</span>
+                                </span>
+                                <span class="field__value editable field__value--lg" id="ficha-trilha" data-bind="trilha.nome"
+                                      contenteditable="true" tabindex="0" role="combobox" aria-expanded="false"
+                                      aria-autocomplete="list" aria-labelledby="label-trilha"
+                                      spellcheck="false" aria-label="Trilha escolhida">-</span>
+                                <div class="autocomplete" id="path-suggestions" role="listbox" hidden></div>
+                                <div class="path-progress" id="path-progresso" hidden>
+                                    <div class="path-progress__bar"><span id="path-progresso-fill"></span></div>
+                                    <small id="path-progresso-texto">0 de 0 maldições desbloqueadas</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6">
+                            <label class="field">
+                                <span class="field__label"><i class="bi bi-eye" aria-hidden="true"></i> Aparência</span>
+                                <span class="field__value editable field__value--area" id="ficha-aparencia"
+                                      data-bind="aparencia" contenteditable="true" tabindex="0" role="textbox"
+                                      aria-label="Aparência do personagem">Descreva a aparência do personagem aqui.</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- ======================= Atributos ======================= -->
+    <section class="row g-3 mb-3" aria-label="Atributos">
+        <div class="col-12 col-lg-5">
+            <article class="card card--relic" data-section="atributos">
+                <span class="card__corner" aria-hidden="true"></span>
+                <header class="card__header">
+                    <h2 class="card__title"><i class="bi bi-activity" aria-hidden="true"></i> Atributos</h2>
+                    <button class="btn btn-ghost btn-xs" id="btn-recalcular"
+                            aria-label="Recalcular HP, PA, Esquiva e DT" title="Recalcular recursos">
+                        <i class="bi bi-arrow-clockwise" aria-hidden="true"></i> Recalcular
+                    </button>
+                </header>
+                <div class="card__body">
+                    <div class="atributos" id="atributos-lista"></div>
+                    <p class="card__foot-hint">
+                        <i class="bi bi-calculator" aria-hidden="true"></i>
+                        HP = 20 + (Físico − 10) × 5 + Nível × 2 · PA = Energia Amaldiçoada + Nível × 2 ·
+                        Esquiva = Agilidade · DT = Energia Amaldiçoada
+                    </p>
+                </div>
+            </article>
+        </div>
+
+        <div class="col-12 col-lg-7">
+            <article class="card card--relic" data-section="pericias">
+                <span class="card__corner" aria-hidden="true"></span>
+                <header class="card__header">
+                    <h2 class="card__title"><i class="bi bi-dice-5" aria-hidden="true"></i> Perícias</h2>
+                    <div class="card__actions">
+                        <button class="btn btn-ghost btn-xs" id="btn-rolar" aria-label="Rolar todas as perícias">
+                            <i class="bi bi-dice-6" aria-hidden="true"></i> Rolar tudo
+                        </button>
+                    </div>
+                </header>
+                <div class="card__body">
+                    <div class="skills" id="pericias-lista">
+                        <div class="empty-state small">
+                            <div class="empty-state__spinner" aria-hidden="true"></div>
+                            Carregando perícias…
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- ======================= Inventário + Maldições ======================= -->
+    <section class="row g-3 mb-3" aria-label="Inventário e maldições">
+        <div class="col-12 col-lg-5">
+            <article class="card card--relic" data-section="inventario">
+                <span class="card__corner" aria-hidden="true"></span>
+                <header class="card__header">
+                    <h2 class="card__title"><i class="bi bi-backpack" aria-hidden="true"></i> Inventário</h2>
+                    <button class="btn btn-accent btn-xs" id="btn-add-equip"
+                            aria-label="Adicionar equipamento" title="Adicionar equipamento">
+                        <i class="bi bi-plus-lg" aria-hidden="true"></i> Equipamento
+                    </button>
+                </header>
+                <div class="card__body">
+                    <div class="list-toolbar">
+                        <span class="list-toolbar__stat"><i class="bi bi-box-seam" aria-hidden="true"></i>
+                            <span id="equip-total-qtd">0</span> itens</span>
+                        <span class="list-toolbar__stat"><i class="bi bi-briefcase" aria-hidden="true"></i>
+                            <span id="equip-total-peso">0</span>p de espaço</span>
+                    </div>
+                    <div class="item-list" id="equip-lista"></div>
+                </div>
+            </article>
+        </div>
+
+        <div class="col-12 col-lg-7">
+            <article class="card card--relic" data-section="maldicoes">
+                <span class="card__corner" aria-hidden="true"></span>
+                <header class="card__header">
+                    <h2 class="card__title card__title--danger">
+                        <i class="bi bi-flower1" aria-hidden="true"></i> Maldições
+                    </h2>
+                    <button class="btn btn-danger btn-xs" id="btn-add-maldicao"
+                            aria-label="Adicionar maldição" title="Adicionar maldição">
+                        <i class="bi bi-plus-lg" aria-hidden="true"></i> Maldição
+                    </button>
+                </header>
+                <div class="card__body">
+                    <div class="item-list" id="maldicoes-lista"></div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- ======================= Notas ======================= -->
+    <section class="row g-3 mb-3" aria-label="Anotações">
+        <div class="col-12">
+            <article class="card card--relic" data-section="notas">
+                <span class="card__corner" aria-hidden="true"></span>
+                <header class="card__header">
+                    <h2 class="card__title"><i class="bi bi-journal-bookmark" aria-hidden="true"></i> Anotações</h2>
+                </header>
+                <div class="card__body">
+                    <div class="field">
+                        <span class="field__value editable field__value--area field__value--tall" id="ficha-notas"
+                              data-bind="notas" contenteditable="true" tabindex="0" role="textbox"
+                              aria-label="Anotações livres">Objetivos, promessa, cicatrizes, portas que não deveria ter aberto…</div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</main>
+
+<!-- ======================= Rodapé ======================= -->
+<footer class="app-footer">
+    <div class="rolls">
+        <h2 class="rolls__title"><i class="bi bi-journal-text" aria-hidden="true"></i> Histórico de rolagens</h2>
+        <ul class="rolls__list" id="rolagens-lista" aria-live="polite">
+            <li class="rolls__empty">Nenhuma rolagem ainda — clique no dado de uma perícia.</li>
+        </ul>
+    </div>
+    <p class="app-footer__sig">•X• LAST PAIGE •X• <span id="footer-versao"></span></p>
+</footer>
+
+<!-- ======================= Painel de condições ======================= -->
+<aside class="conditions" aria-label="Condições do personagem">
+    <button class="conditions__toggle" id="btn-condicoes" aria-expanded="false"
+            aria-controls="painel-condicoes" aria-label="Abrir painel de condições">
+        <i class="bi bi-clipboard2-pulse" aria-hidden="true"></i>
+        <span class="conditions__badge" id="condicoes-contador" hidden>0</span>
+    </button>
+    <div class="conditions__panel" id="painel-condicoes" hidden>
+        <header class="conditions__header">
+            <h2><i class="bi bi-clipboard-check" aria-hidden="true"></i> Condições</h2>
+            <button class="btn btn-ghost btn-xs" id="btn-limpar-condicoes" aria-label="Remover todas as condições">
+                limpar
+            </button>
+        </header>
+        <ul class="conditions__list" id="condicoes-lista"></ul>
+    </div>
+</aside>
+
+<!-- ======================= Toasts ======================= -->
+<div class="toasts" id="toasts" role="region" aria-label="Avisos" aria-live="polite"></div>
+
+<!-- ======================= Modais ======================= -->
+<div class="modal fade" id="modalFichas" tabindex="-1" aria-labelledby="modalFichas-titulo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-content--relic">
+            <div class="modal-header">
+                <h2 class="modal-title h5" id="modalFichas-titulo">
+                    <i class="bi bi-journals" aria-hidden="true"></i> Fichas salvas
+                </h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+                <ul class="sheet-list" id="fichas-lista"></ul>
+                <p class="modal-hint">Cada ficha é salva de forma independente neste navegador.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-ghost" id="btn-nova-ficha" type="button">
+                    <i class="bi bi-plus-lg" aria-hidden="true"></i> Nova ficha
+                </button>
+                <button class="btn btn-ghost btn-danger-ghost" id="btn-apagar-ficha" type="button">
+                    <i class="bi bi-trash3" aria-hidden="true"></i> Apagar ficha atual
+                </button>
+                <button class="btn btn-accent" type="button" data-bs-dismiss="modal">Pronto</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalEquip" tabindex="-1" aria-labelledby="modalEquip-titulo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-content--relic">
+            <form id="form-equip" novalidate>
+                <div class="modal-header">
+                    <h2 class="modal-title h5" id="modalEquip-titulo">
+                        <i class="bi bi-backpack" aria-hidden="true"></i> Novo equipamento
+                    </h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3 field--autocomplete">
+                        <label class="form-label" for="equip-nome">Nome</label>
+                        <input type="text" class="form-control" id="equip-nome" autocomplete="off"
+                               placeholder="comece a digitar para buscar…">
+                        <div class="autocomplete" id="equip-suggestions" role="listbox" hidden></div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="equip-dano">Dano / descrição</label>
+                        <textarea class="form-control" id="equip-dano" rows="2"
+                                  placeholder="1d6+2, ou o efeito do item"></textarea>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <label class="form-label" for="equip-qtd">Quantidade</label>
+                            <input type="number" class="form-control" id="equip-qtd" min="1" value="1">
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label" for="equip-peso">Peso/espaço (p)</label>
+                            <input type="number" class="form-control" id="equip-peso" min="0" value="1">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-ghost" type="button" data-bs-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-accent" type="submit">
+                        <i class="bi bi-plus-lg" aria-hidden="true"></i> Adicionar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalMaldicao" tabindex="-1" aria-labelledby="modalMaldicao-titulo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-content--relic modal-content--danger">
+            <form id="form-maldicao" novalidate>
+                <div class="modal-header">
+                    <h2 class="modal-title h5" id="modalMaldicao-titulo">
+                        <i class="bi bi-flower1" aria-hidden="true"></i> Nova maldição
+                    </h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label" for="mald-nome">Nome da maldição</label>
+                        <input type="text" class="form-control" id="mald-nome" required>
+                    </div>
+                    <div class="row g-3 mb-3">
+                        <div class="col-6">
+                            <label class="form-label" for="mald-custo">Custo</label>
+                            <input type="text" class="form-control" id="mald-custo" value="1 PA">
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label" for="mald-elemento">Elemento</label>
+                            <input type="text" class="form-control" id="mald-elemento" placeholder="N/A">
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label" for="mald-descricao">Descrição</label>
+                        <textarea class="form-control" id="mald-descricao" rows="4" required></textarea>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="mald-ativa" checked>
+                        <label class="form-check-label" for="mald-ativa">Maldição ativa</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-ghost" type="button" data-bs-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-danger" type="submit">
+                        <i class="bi bi-plus-lg" aria-hidden="true"></i> Adicionar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalConfirmar" tabindex="-1" aria-labelledby="modalConfirmar-titulo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content modal-content--danger">
+            <div class="modal-header">
+                <h2 class="modal-title h5" id="modalConfirmar-titulo">
+                    <i class="bi bi-exclamation-octagon" aria-hidden="true"></i> Confirmar
+                </h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+                <p id="confirmar-texto" class="mb-0"></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-ghost" type="button" data-bs-dismiss="modal">Cancelar</button>
+                <button class="btn btn-danger" type="button" id="btn-confirmar-ok">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Áudio de fundo -->
+<audio id="bgMusic" loop preload="none">
+    <source src="assets/lastPaigeTema.wav" type="audio/wav">
+    Seu navegador não suporta áudio.
+</audio>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

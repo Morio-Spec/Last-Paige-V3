@@ -1,0 +1,299 @@
+{
+  "_README": "FICHA LAST PAIGE — lista de EQUIPAMENTOS\n\nCada item dentro de \"equipamentos\":\n  id        -> identificador único (não repita; ex.: \"eq-43\")\n  nome      -> texto que aparece no autocomplete\n  categoria -> texto livre para organizar: \"Arma\", \"Equipamento\", \"Consumível\"...\n  dano      -> texto com dano OU descrição/efeito do item\n  peso      -> número inteiro: peso/espaço ocupado (1p, 2p, 3p...)\n\nPara adicionar item: copie um bloco {...}, troque id/nome/dano/peso e salve.\nDepois é só recarregar a página — não precisa mexer em nenhum .js.\n\nObservação: o texto entre parênteses no final do \"dano\" (ex.: \"3p\")\né apenas convenção de leitura; o peso real vem do campo \"peso\".",
+  "equipamentos": [
+    {
+      "id": "eq-1",
+      "nome": "Punhal",
+      "categoria": "Arma",
+      "dano": "1d6",
+      "peso": 1
+    },
+    {
+      "id": "eq-2",
+      "nome": "Lanterna",
+      "categoria": "Equipamento",
+      "dano": "Remove desvantagens em ambientes escuros para o usuário e aliados próximos. 1p",
+      "peso": 1
+    },
+    {
+      "id": "eq-3",
+      "nome": "Mira laser",
+      "categoria": "Equipamento",
+      "dano": "Adiciona +1 em pontaria quando acoplada a uma arma. 1p. Inimigos podem testar Percepção vs. Furtividade para se proteger.",
+      "peso": 1
+    },
+    {
+      "id": "eq-4",
+      "nome": "Detector de atividade paranormal",
+      "categoria": "Item",
+      "dano": "Funciona como sonar, indicando áreas de forte atividade paranormal. 2p",
+      "peso": 2
+    },
+    {
+      "id": "eq-5",
+      "nome": "Colete à prova de balas",
+      "categoria": "Equipamento",
+      "dano": "Concede RD balístico 6. 2p",
+      "peso": 2
+    },
+    {
+      "id": "eq-6",
+      "nome": "Escudo de batalha",
+      "categoria": "Arma",
+      "dano": "Habilidade 'Defesa': teste para reduzir dano físico pela metade. 3 estágios: Bom (normal), Danificado (-2), Quebrado (inútil). Reparo requer armeiro.",
+      "peso": 1
+    },
+    {
+      "id": "eq-7",
+      "nome": "Corda",
+      "categoria": "Equipamento",
+      "dano": "Teste de Pontaria (Agilidade) para ancorar (+5 em Atletismo para escalar). Pode imobilizar alvos (Força/Agilidade vs. Força do alvo). 1p",
+      "peso": 1
+    },
+    {
+      "id": "eq-8",
+      "nome": "Notebook",
+      "categoria": "Equipamento",
+      "dano": "+5 em testes de Tecnologia para pesquisas online. 1p",
+      "peso": 1
+    },
+    {
+      "id": "eq-9",
+      "nome": "Kit hack",
+      "categoria": "Equipamento",
+      "dano": "Ação 'Hackear': Inteligência +5 para burlar sistemas. 2p",
+      "peso": 2
+    },
+    {
+      "id": "eq-10",
+      "nome": "Pacote de estimulantes",
+      "categoria": "Equipamento",
+      "dano": "Drogas experimentais: Muscular (+1 Força, risco de -1 Int/Dex), Vital (+5 PV ou cura 5 PV, risco de -1 Força), Cerebral (+1 Int, risco de efeito 'Cansado').",
+      "peso": 1
+    },
+    {
+      "id": "eq-11",
+      "nome": "Kit médico",
+      "categoria": "Equipamento",
+      "dano": "Recupera 3d6 de HP ou tira um aliado do estado 'morrendo'. 2 usos. 1p",
+      "peso": 1
+    },
+    {
+      "id": "eq-12",
+      "nome": "Kit de arrombamento",
+      "categoria": "Equipamento",
+      "dano": "Teste de Destreza +5 para abrir fechaduras. 4 usos. 1p",
+      "peso": 1
+    },
+    {
+      "id": "eq-13",
+      "nome": "Munição",
+      "categoria": "Equipamento",
+      "dano": "Recarrega armas balísticas. 1p",
+      "peso": 1
+    },
+    {
+      "id": "eq-14",
+      "nome": "Bolsa de viagens",
+      "categoria": "Equipamento",
+      "dano": "10p de espaço no inventário. Não carrega armas.",
+      "peso": 10
+    },
+    {
+      "id": "eq-15",
+      "nome": "Bolsa de agente",
+      "categoria": "Equipamento",
+      "dano": "20p de espaço no inventário. Armazenamento para equipamentos paranormais.",
+      "peso": 20
+    },
+    {
+      "id": "eq-16",
+      "nome": "Espada",
+      "categoria": "Arma",
+      "dano": "2d6/1d6 (mão dupla). 2p",
+      "peso": 2
+    },
+    {
+      "id": "eq-17",
+      "nome": "Katana",
+      "categoria": "Arma",
+      "dano": "1d12. 2p",
+      "peso": 2
+    },
+    {
+      "id": "eq-18",
+      "nome": "Mangual",
+      "categoria": "Arma",
+      "dano": "1d10+1d4 (Força ≥17, crítico x2, distância média). 3p",
+      "peso": 3
+    },
+    {
+      "id": "eq-19",
+      "nome": "Machado",
+      "categoria": "Arma",
+      "dano": "1d12 (Força ≥17, crítico x2). 3p",
+      "peso": 3
+    },
+    {
+      "id": "eq-20",
+      "nome": "Soco inglês",
+      "categoria": "Arma",
+      "dano": "1d6 + dano físico (corpo a corpo).",
+      "peso": 1
+    },
+    {
+      "id": "eq-21",
+      "nome": "Bastão",
+      "categoria": "Arma",
+      "dano": "1d6 (curta distância). 1p",
+      "peso": 1
+    },
+    {
+      "id": "eq-22",
+      "nome": "Nunchaku",
+      "categoria": "Arma",
+      "dano": "1d8 (corpo a corpo). 2p",
+      "peso": 2
+    },
+    {
+      "id": "eq-23",
+      "nome": "Manopla",
+      "categoria": "Arma",
+      "dano": "2d8 + dano físico (Força ≥17). 4p",
+      "peso": 4
+    },
+    {
+      "id": "eq-24",
+      "nome": "Shuriken",
+      "categoria": "Arma",
+      "dano": "4d4 (média distância). 1p",
+      "peso": 1
+    },
+    {
+      "id": "eq-25",
+      "nome": "Pacote de lâminas",
+      "categoria": "Arma",
+      "dano": "3d4 (média distância). 2p",
+      "peso": 2
+    },
+    {
+      "id": "eq-26",
+      "nome": "Arco e flecha",
+      "categoria": "Arma",
+      "dano": "1d12 (longa distância). 1p",
+      "peso": 1
+    },
+    {
+      "id": "eq-27",
+      "nome": "Besta",
+      "categoria": "Item",
+      "dano": "2d6 (média distância). 2p",
+      "peso": 2
+    },
+    {
+      "id": "eq-28",
+      "nome": "Lança",
+      "categoria": "Arma",
+      "dano": "1d10 (curta distância). 3p",
+      "peso": 3
+    },
+    {
+      "id": "eq-29",
+      "nome": "Glock",
+      "categoria": "Arma",
+      "dano": "2d6 (média distância). 2p",
+      "peso": 2
+    },
+    {
+      "id": "eq-30",
+      "nome": "Pistola",
+      "categoria": "Arma",
+      "dano": "2d6 (média distância). 2p",
+      "peso": 2
+    },
+    {
+      "id": "eq-31",
+      "nome": "Deagle",
+      "categoria": "Arma",
+      "dano": "2d8 (média distância). 2p",
+      "peso": 2
+    },
+    {
+      "id": "eq-32",
+      "nome": "Magnum",
+      "categoria": "Arma",
+      "dano": "3d6 (média distância). 3p",
+      "peso": 3
+    },
+    {
+      "id": "eq-33",
+      "nome": "AK-47",
+      "categoria": "Arma",
+      "dano": "3d8 (média distância).",
+      "peso": 1
+    },
+    {
+      "id": "eq-34",
+      "nome": "Rifle de caça",
+      "categoria": "Arma",
+      "dano": "1d12 (longa distância). 2p",
+      "peso": 2
+    },
+    {
+      "id": "eq-35",
+      "nome": "Sniper",
+      "categoria": "Arma",
+      "dano": "2d12 (longa distância). 4p",
+      "peso": 4
+    },
+    {
+      "id": "eq-36",
+      "nome": "Shotgun",
+      "categoria": "Arma",
+      "dano": "2d6 (curta distância) ou 1d6 (média distância). 2p",
+      "peso": 2
+    },
+    {
+      "id": "eq-37",
+      "nome": "Minigun",
+      "categoria": "Arma",
+      "dano": "6d6 (média distância, Força ≥17). 5p",
+      "peso": 5
+    },
+    {
+      "id": "eq-38",
+      "nome": "Granada",
+      "categoria": "Arma",
+      "dano": "6d6 (área). 2p",
+      "peso": 2
+    },
+    {
+      "id": "eq-39",
+      "nome": "Bazuca",
+      "categoria": "Arma",
+      "dano": "6d8 (área, Força ≥17). 3p",
+      "peso": 3
+    },
+    {
+      "id": "eq-40",
+      "nome": "Mina",
+      "categoria": "Arma",
+      "dano": "6d6 (armadilha). 3p",
+      "peso": 3
+    },
+    {
+      "id": "eq-41",
+      "nome": "Lança-chamas",
+      "categoria": "Arma",
+      "dano": "5d6 (curta distância). 4p",
+      "peso": 4
+    },
+    {
+      "id": "eq-42",
+      "nome": "Molotov",
+      "categoria": "Arma",
+      "dano": "6d6 (área).",
+      "peso": 1
+    }
+  ]
+}

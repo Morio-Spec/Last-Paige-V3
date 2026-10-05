@@ -1,0 +1,83 @@
+{
+  "_README": "FICHA LAST PAIGE — CONDIÇÕES (13 estados do personagem)\n\n  id        -> identificador único e estável (não mude, é salvo na ficha)\n  nome      -> nome visível da condição\n  cor       -> cor de destaque (hex, ex.: \"#ff3333\")\n  descricao -> texto da regra. EDITÁVEL à vontade.\n\nA condição marcada na ficha aparece também nas etiquetas do cabeçalho.\nPara criar uma condição nova: copie um bloco {...} e escolha um id diferente.",
+  "condicoes": [
+    {
+      "id": "sangrando",
+      "nome": "Sangrando",
+      "cor": "#ff3333",
+      "descricao": "1d8 por rodada. Teste Medicina DT 15 para estancar."
+    },
+    {
+      "id": "cansado",
+      "nome": "Cansado",
+      "cor": "#a0a0a0",
+      "descricao": "-2 em testes. Precisa de descanso médio."
+    },
+    {
+      "id": "atordoado",
+      "nome": "Atordoado",
+      "cor": "#ff9900",
+      "descricao": "Após 2 críticos, teste Instabilidade DT 15. +1 acerto contra você por 1 rodada."
+    },
+    {
+      "id": "enjoado",
+      "nome": "Enjoado",
+      "cor": "#8a2be2",
+      "descricao": "Apenas 1 ação (mover ou atacar). Dura 1 cena."
+    },
+    {
+      "id": "morrendo",
+      "nome": "Morrendo",
+      "cor": "#9aa0a6",
+      "descricao": "Teste Físico DT 10 (+2/rodada). Kit médico necessário para salvar."
+    },
+    {
+      "id": "aterrorizado",
+      "nome": "Aterrorizado",
+      "cor": "#800080",
+      "descricao": "-2 testes. Rola 1d20: até 10 paralisado, senão foge. Diplomacia ou Vontade DT 15 ajuda."
+    },
+    {
+      "id": "perturbado",
+      "nome": "Perturbado",
+      "cor": "#9370db",
+      "descricao": "Teste Vontade DT 15. Ímpar: ilusão. Par: ignora. Ex.: atacar ou investigar algo que não existe."
+    },
+    {
+      "id": "envenenado",
+      "nome": "Envenenado",
+      "cor": "#32cd32",
+      "descricao": "1d6 por rodada e -2 em Agilidade, dura uma cena mesmo após recuperação. Requer antídoto do kit médico DT 15. Pode se anular com teste de resistência como reação."
+    },
+    {
+      "id": "em-chamas",
+      "nome": "Em Chamas",
+      "cor": "#ff8c00",
+      "descricao": "2d6 por rodada. Apaga com água ou Atletismo DT 10."
+    },
+    {
+      "id": "afogando",
+      "nome": "Afogando",
+      "cor": "#1e90ff",
+      "descricao": "Dano 1d8 por rodada após turnos = Físico e -2 em teste de ataque enquanto nesse estado. Precisa sair da água."
+    },
+    {
+      "id": "congelado",
+      "nome": "Congelado",
+      "cor": "#00bfff",
+      "descricao": "Dano 1d6 por rodada após turnos = Físico. Precisa sair da água."
+    },
+    {
+      "id": "congelado-combate",
+      "nome": "Congelado (Combate)",
+      "cor": "#00bfff",
+      "descricao": "Ao ser atingido por gelo, teste Instabilidade. Falha: congelado (+1 ataque contra você)."
+    },
+    {
+      "id": "hipotermia",
+      "nome": "Hipotermia",
+      "cor": "#add8e6",
+      "descricao": "Tempo no frio = Físico em turnos. Falha: 8d6/turno. Requer fonte de calor e teste Instabilidade DT 15 para evitar sequelas."
+    }
+  ]
+}

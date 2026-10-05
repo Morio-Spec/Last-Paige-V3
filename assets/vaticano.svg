@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Ficha Last Paige — Vaticano">
+  <rect width="64" height="64" rx="12" fill="#fffdf6"/>
+  <circle cx="32" cy="32" r="20" fill="#c4a04a"/>
+  <circle cx="32" cy="32" r="14" fill="#fffdf6"/>
+  <g stroke="#a5801f" stroke-width="3" stroke-linecap="round">
+    <path d="M32 6 v10 M32 48 v10 M6 32 h10 M48 32 h10"/>
+    <path d="M13.6 13.6 l7 7 M43.4 43.4 l7 7 M50.4 13.6 l-7 7 M20.6 43.4 l-7 7"/>
+  </g>
+  <circle cx="32" cy="32" r="4" fill="#a5801f"/>
+</svg>

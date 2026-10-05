@@ -1,0 +1,340 @@
+/* ============================================================
+   FICHA LAST PAIGE — style.css
+   Base, tipografia, temas e animações de fundo.
+   Os componentes (cards, botões, modais) ficam em components.css
+   ============================================================ */
+
+/* ---------- Reset leve ---------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+    -webkit-text-size-adjust: 100%;
+    /* Nenhum elemento pode criar barra horizontal (critério: 360px) */
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-size: 1rem;
+    line-height: 1.55;
+    color: var(--text);
+    background-color: var(--bg);
+    background-image:
+        radial-gradient(1200px 700px at 15% -10%, var(--bg-glow-1), transparent 60%),
+        radial-gradient(900px 600px at 110% 20%, var(--bg-glow-2), transparent 55%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+/* ============================================================
+   TEMAS — todas as cores passam por variáveis
+   ============================================================ */
+
+[data-theme="dark"] {
+    --bg: #070a08;
+    --bg-deep: #020403;
+    --bg-glow-1: rgba(46, 204, 113, .16);
+    --bg-glow-2: rgba(0, 100, 0, .22);
+    --surface: rgba(255, 255, 255, .035);
+    --surface-2: rgba(255, 255, 255, .06);
+    --surface-solid: #0b100d;
+    --border: rgba(120, 220, 150, .18);
+    --border-strong: rgba(120, 220, 150, .45);
+    --text: #dfe9e3;
+    --text-dim: #8fa69a;
+    --text-bright: #f2fff6;
+    --accent: #2ecc71;
+    --accent-soft: rgba(46, 204, 113, .16);
+    --accent-2: #7ee2a8;
+    --danger: #e0484f;
+    --danger-soft: rgba(224, 72, 79, .16);
+    --warn: #f0b429;
+    --info: #4aa3f0;
+    --psy: #a06cd5;
+    --shadow: 0 18px 40px rgba(0, 0, 0, .55);
+    --shadow-sm: 0 6px 18px rgba(0, 0, 0, .4);
+    --rune-color: rgba(120, 235, 165, .5);
+    --scroll-thumb: #2ecc71;
+}
+
+[data-theme="bloodmoon"] {
+    --bg: #0b0304;
+    --bg-deep: #1a0000;
+    --bg-glow-1: rgba(200, 30, 40, .22);
+    --bg-glow-2: rgba(90, 0, 10, .35);
+    --surface: rgba(255, 240, 240, .04);
+    --surface-2: rgba(255, 240, 240, .07);
+    --surface-solid: #140607;
+    --border: rgba(255, 90, 90, .22);
+    --border-strong: rgba(255, 90, 90, .5);
+    --text: #f3dcdc;
+    --text-dim: #bb8a8a;
+    --text-bright: #fff1f1;
+    --accent: #ff4d4d;
+    --accent-soft: rgba(255, 77, 77, .16);
+    --accent-2: #ff8a8a;
+    --danger: #ff2d2d;
+    --danger-soft: rgba(255, 45, 45, .18);
+    --warn: #ffa53d;
+    --info: #ff7a7a;
+    --psy: #d15fc0;
+    --shadow: 0 18px 40px rgba(40, 0, 0, .6);
+    --shadow-sm: 0 6px 18px rgba(40, 0, 0, .45);
+    --rune-color: rgba(255, 90, 90, .5);
+    --scroll-thumb: #ff4d4d;
+}
+
+[data-theme="vaticano"] {
+    --bg: #f6f1e4;
+    --bg-deep: #ece2cd;
+    --bg-glow-1: rgba(196, 160, 74, .28);
+    --bg-glow-2: rgba(255, 255, 255, .7);
+    --surface: rgba(255, 255, 255, .72);
+    --surface-2: rgba(255, 255, 255, .95);
+    --surface-solid: #fffdf6;
+    --border: rgba(160, 126, 40, .35);
+    --border-strong: rgba(160, 126, 40, .7);
+    --text: #2f2a1e;
+    --text-dim: #7d7263;
+    --text-bright: #16120a;
+    --accent: #a5801f;
+    --accent-soft: rgba(197, 160, 74, .2);
+    --accent-2: #d9b451;
+    --danger: #9d2230;
+    --danger-soft: rgba(157, 34, 48, .14);
+    --warn: #b8801f;
+    --info: #2f6ea8;
+    --psy: #6c4aa3;
+    --shadow: 0 16px 36px rgba(90, 70, 20, .22);
+    --shadow-sm: 0 5px 16px rgba(90, 70, 20, .18);
+    --rune-color: rgba(160, 126, 40, .45);
+    --scroll-thumb: #c4a04a;
+}
+
+/* No tema vaticano o glassmorphism precisa ser mais claro */
+[data-theme="vaticano"] body,
+[data-theme="vaticano"] .card,
+[data-theme="vaticano"] .modal-content {
+    color: var(--text);
+}
+
+/* ---------- Tipografia ---------- */
+h1, h2, h3, .brand__title, .modal-title, .card__title {
+    font-family: 'Cinzel', 'Times New Roman', serif;
+    letter-spacing: .04em;
+}
+
+.text-dim { color: var(--text-dim); }
+
+kbd {
+    font-family: 'Inter', monospace;
+    font-size: .72rem;
+    padding: .1em .4em;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    color: var(--text-dim);
+}
+
+/* ---------- Foco visível (RF12) ---------- */
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 6px;
+}
+
+/* O Bootstrap zera o outline de .btn:focus-visible; aqui o foco
+   precisa continuar visível para navegação por teclado. */
+.btn:focus-visible,
+.btn:focus-visible:focus,
+.form-control:focus-visible,
+.form-check-input:focus-visible,
+.dropdown-item:focus-visible,
+.autocomplete__item:focus-visible,
+.cond:focus-visible,
+.dbox:focus-visible {
+    outline: 2px solid var(--accent) !important;
+    outline-offset: 2px;
+    box-shadow: none !important;
+}
+
+[data-theme="bloodmoon"] :focus-visible,
+[data-theme="bloodmoon"] .btn:focus-visible {
+    outline-color: var(--danger) !important;
+}
+
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    z-index: 2000;
+    padding: .75rem 1rem;
+    background: var(--accent);
+    color: #04180d;
+    border-radius: 0 0 8px 0;
+    font-weight: 600;
+}
+
+.skip-link:focus {
+    left: 0;
+}
+
+/* ---------- Scrollbar ---------- */
+* { scrollbar-width: thin; scrollbar-color: var(--scroll-thumb) transparent; }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+    background: var(--scroll-thumb);
+    border-radius: 999px;
+    opacity: .6;
+}
+
+/* ============================================================
+   RUNAS DE FUNDO — performáticas (transform + opacity only)
+   ============================================================ */
+.bg-runes {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+    contain: strict;
+}
+
+.rune {
+    position: absolute;
+    top: var(--y);
+    left: var(--x);
+    will-change: transform, opacity;
+    opacity: 0;
+}
+
+.rune-svg {
+    width: 44px;
+    height: 44px;
+    background: no-repeat center/contain
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 8 L70 28 L92 50 L70 72 L50 92 L30 72 L8 50 L30 28 Z' fill='none' stroke='%232ecc71' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='9' fill='none' stroke='%232ecc71' stroke-width='2'/%3E%3C/svg%3E");
+    filter: grayscale(1);
+    animation: runeDrift var(--dur, 30s) linear infinite;
+    animation-delay: var(--d, 0s);
+}
+
+.rune-x {
+    font-family: 'Cinzel', serif;
+    font-size: 1.9rem;
+    color: var(--rune-color);
+    text-shadow: 0 0 12px currentColor;
+    animation: runeXDrift var(--dur, 40s) linear infinite;
+    animation-delay: var(--d, 0s);
+}
+
+[data-theme="bloodmoon"] .rune-svg {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 8 L70 28 L92 50 L70 72 L50 92 L30 72 L8 50 L30 28 Z' fill='none' stroke='%23ff4d4d' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='9' fill='none' stroke='%23ff4d4d' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+[data-theme="vaticano"] .rune-svg {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 8 L70 28 L92 50 L70 72 L50 92 L30 72 L8 50 L30 28 Z' fill='none' stroke='%23a5801f' stroke-width='2'/%3E%3Cpath d='M30 50 h40 M50 30 v40' stroke='%23a5801f' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+@keyframes runeDrift {
+    0%   { transform: translate3d(0, 0, 0) rotate(0deg);        opacity: 0; }
+    15%  {                                                         opacity: .5; }
+    50%  { transform: translate3d(24px, -34px, 0) rotate(180deg); opacity: .28; }
+    85%  {                                                         opacity: .45; }
+    100% { transform: translate3d(-12px, 26px, 0) rotate(360deg);  opacity: 0; }
+}
+
+@keyframes runeXDrift {
+    0%   { transform: translate3d(0, 0, 0) rotate(0deg);      opacity: 0; }
+    20%  {                                                   opacity: .55; }
+    60%  { transform: translate3d(-18px, 40px, 0) rotate(200deg); opacity: .22; }
+    100% { transform: translate3d(10px, -30px, 0) rotate(360deg); opacity: 0; }
+}
+
+/* ---------- Animações genéricas ---------- */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translate3d(0, 12px, 0); }
+    to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes pulseBorder {
+    0%   { box-shadow: 0 0 0 0 var(--accent-soft); }
+    70%  { box-shadow: 0 0 0 8px transparent; }
+    100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+@keyframes toastIn {
+    from { opacity: 0; transform: translate3d(0, -8px, 0) scale(.96); }
+    to   { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@keyframes shake {
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    25%      { transform: translate3d(-4px, 0, 0); }
+    75%      { transform: translate3d(4px, 0, 0); }
+}
+
+/* ---------- Acessibilidade: sem animação ---------- */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .bg-runes { display: none; }
+
+    .card,
+    .item,
+    .toast { animation: none !important; }
+}
+
+/* ---------- Impressão de fundo / tema escuro do Bootstrap ---------- */
+[data-bs-theme="dark"] .form-control,
+[data-bs-theme="dark"] .form-select,
+.form-control,
+.form-select {
+    background-color: var(--surface-2);
+    border-color: var(--border);
+    color: var(--text);
+}
+
+.form-control::placeholder { color: var(--text-dim); opacity: .7; }
+.form-control:focus,
+.form-select:focus {
+    background-color: var(--surface-2);
+    border-color: var(--accent);
+    color: var(--text);
+    box-shadow: 0 0 0 .2rem var(--accent-soft);
+}
+
+.form-label {
+    font-size: .78rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: .35rem;
+}
+
+.form-switch .form-check-input { cursor: pointer; }
+
+.dropdown-menu {
+    background-color: var(--surface-solid);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.dropdown-item { color: var(--text); }
+.dropdown-item:hover,
+.dropdown-item:focus { background-color: var(--accent-soft); color: var(--text-bright); }
